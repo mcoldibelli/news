@@ -1,8 +1,9 @@
+import Header from '../components/Header';
+
 function Home() {
   return (
     <main>
-      <img src="src/assets/ibge-logo.svg" alt="IBGE Logo" />
-      <header>IBGE News</header>
+      <Header />
       <div>
         <img src="" alt="Thumbnail" />
         <div>Notícia Destaque</div>
