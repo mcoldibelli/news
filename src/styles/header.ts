@@ -8,7 +8,6 @@ export const HeaderWrapper = styled.header`
   padding: 1rem;
   max-height: 60px;
   background-color: ${theme.colors.primaryBackground};
-  box-shadow: ${theme.colors.boxShadow};
 
   img {
     width: 10rem;
@@ -25,6 +24,8 @@ export const HeaderWrapper = styled.header`
   }
 
   @media (max-width: 768px) {
+    height: 40px;
+    
     img {
       width: 8rem;
     }
