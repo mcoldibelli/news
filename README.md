@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+# Project Title: IBGE News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+A React-based news aggregator that fetches and displays the latest news headlines from the IBGE API. Allows users to filter and save their favorite news articles.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Dynamic news feed rendered from the IBGE API
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Ability to filter the display
 
-- Configure the top-level `parserOptions` property like this:
+- Displays an initial grid of the top 9 news items
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Getting Started
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+**Prerequisites**
+
+Node.js (version 14 or above)
+npm or yarn
+Installation
+
+Clone this repository:
+
+`git clone https://github.com/mcoldibelli/news.git`
+
+Navigate to the project directory:
+
+`cd news`
+
+Install dependencies:
+
+`npm install` 
+### Or, if using yarn
+`yarn install`
+
+Running the Application
+
+Start the development server:
+
+`npm start`
+### Or, if using yarn
+`yarn start`
+
+Open the application in your web browser at http://localhost:3000
+
+## Technologies Used
+
+- React.js
+- JavaScript
+- CSS
+
+
+## Project Structure
