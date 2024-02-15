@@ -24,4 +24,13 @@ export const HeaderWrapper = styled.header`
     color: white;
   }
 
+  @media (max-width: 768px) {
+    img {
+      width: 8rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
 `;
