@@ -12,8 +12,6 @@ function App() {
     }
   }, [isLoading]);
 
-  console.log(news);
-
   return (
     <>
       <GlobalStyles />
