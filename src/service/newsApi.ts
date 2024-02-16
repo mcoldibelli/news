@@ -1,4 +1,4 @@
-const IBGE_ENDPOINT = 'https://servicodados.ibge.gov.br/api/v3/noticias';
+import { IBGE_ENDPOINT } from '../utils/constants';
 
 const fetchApi = async () => {
   const response = await fetch(IBGE_ENDPOINT);
