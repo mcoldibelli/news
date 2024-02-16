@@ -7,13 +7,20 @@ function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
     window.open(link, '_blank');
   };
 
+  const timeStampFormatted = () => {
+    if (daysSincePublished(date) === 0) {
+      return 'Publicado Hoje';
+    }
+    return `${daysSincePublished(date)} dias atrás`;
+  };
+
   return (
     <NewsCard className={ String(id) }>
       <h2>{ title }</h2>
       <p>{ intro }</p>
-      <div>
+      <div className="highlighted-bottom-row">
         <span>
-          {`${daysSincePublished(date)} dias atrás`}
+          {`${timeStampFormatted()}`}
         </span>
         <button
           onClick={ handleReadMoreClick }
