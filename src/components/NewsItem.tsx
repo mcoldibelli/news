@@ -14,6 +14,10 @@ const daysSincePublished = (date: Date): number => {
 
   const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
 
+  if (Number.isNaN(differenceInDays)) {
+    return 0;
+  }
+
   return differenceInDays;
 };
 
