@@ -8,7 +8,7 @@ export function NewsProvider({ children }:any) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchNews = async () => {
+  const fetchAndSaveNews = async () => {
     setIsLoading(true);
     setError(null);
 
@@ -32,7 +32,7 @@ export function NewsProvider({ children }:any) {
     news: newsData,
     isLoading,
     error,
-    fetchNews,
+    fetchNews: fetchAndSaveNews,
   };
 
   return (
