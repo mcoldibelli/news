@@ -1,4 +1,5 @@
 import useNews from '../hooks/useNews';
+import HighlightedNews from '../styles/newsHighlighted';
 import { IBGE_HOME } from '../utils/constants';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
@@ -20,7 +21,7 @@ function NewsHighlighted() {
   console.log(highlighted);
 
   return (
-    <section>
+    <HighlightedNews>
       <Thumbnail
         src={ parseThumbnail(highlighted.imagens) }
         alt="Thumbnail da Notícia Destaque"
@@ -32,8 +33,7 @@ function NewsHighlighted() {
         date={ new Date(highlighted.data_publicacao) }
         link={ highlighted.link }
       />
-      <div>Notícia Destaque</div>
-    </section>
+    </HighlightedNews>
   );
 }
 
