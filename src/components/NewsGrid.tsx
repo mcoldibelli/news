@@ -14,10 +14,10 @@ function NewsGrid() {
       <NewsItem
         key={ item.id }
         id={ item.id }
-        title={ item.title }
-        intro={ item.intro }
-        date={ item.date }
-        link=""
+        title={ item.titulo }
+        intro={ item.introducao }
+        date={ new Date(item.data_publicacao) }
+        link={ item.link }
       />
     );
   });
@@ -25,7 +25,7 @@ function NewsGrid() {
   return (
     <NewsGridContainer>
       <ul>
-        {newsList}
+        {news && newsList}
       </ul>
     </NewsGridContainer>
   );
