@@ -4,8 +4,11 @@ import { theme } from './theme';
 const Navigation = styled.nav`
   display: flex;
   flex-direction: row;
-  border-top: 2px solid ${theme.colors.secondaryBackground};
-  border-bottom: 2px solid ${theme.colors.secondaryBackground};
+  justify-content: center;
+  width: 60%;
+  border-top: 1px solid ${theme.colors.secondaryBackground};
+  border-bottom: 1px solid ${theme.colors.secondaryBackground};
+  margin: 0 auto;
 
   ul {
     display: flex;
