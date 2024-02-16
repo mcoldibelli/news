@@ -2,12 +2,21 @@ import styled from 'styled-components';
 import { theme } from './theme';
 
 export const HeaderWrapper = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  max-height: 60px;
-  background-color: ${theme.colors.secondaryBackground};
+  
+  padding: 2.5rem;
+  max-height: 4.5rem;
+
+  border-bottom: 1px solid ${theme.colors.secondaryBackground};
+  background-color: ${theme.colors.primaryBackground};
 
   img {
     width: 10rem;
@@ -17,21 +26,14 @@ export const HeaderWrapper = styled.header`
   }
   
   h1 {
-    font-size: clamp(1.8rem, 3vw + 1rem, 2.5rem);
+    font-size: clamp(3.2rem, 3vw + 1rem, 2.5rem);
     flex-grow: 1;
     text-align: center;
     color: ${theme.colors.secondaryText};
   }
 
-  @media (max-width: 768px) {
-    height: 40px;
-    
-    img {
-      width: 8rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-    }
+  span {
+    font-size: 1.2rem;
+    color: ${theme.colors.secondaryText};
   }
 `;
