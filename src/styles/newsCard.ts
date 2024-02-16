@@ -25,7 +25,7 @@ const NewsCard = styled.div`
     margin-top: 1rem;
   }
 
-  button {
+  .read-more-button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.5rem;
@@ -34,7 +34,6 @@ const NewsCard = styled.div`
     color: ${theme.colors.primaryBackground};
     cursor: pointer;
   }
-
 `;
 
 export default NewsCard;

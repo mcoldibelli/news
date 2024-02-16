@@ -23,6 +23,7 @@ function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
           {`${timeStampFormatted()}`}
         </span>
         <button
+          className="read-more-button"
           onClick={ handleReadMoreClick }
         >
           Leia a notícia aqui
