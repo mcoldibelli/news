@@ -1,6 +1,7 @@
 import useNews from '../hooks/useNews';
 import HighlightedNews from '../styles/newsHighlighted';
 import { IBGE_HOME } from '../utils/constants';
+import Favorite from './Favorite';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
 
@@ -20,17 +21,24 @@ function NewsHighlighted() {
 
   return (
     <HighlightedNews>
+      <div className="highlighted-container">
+        <div className="highlighted-top-row">
+          <p>Notícia mais recente</p>
+          <Favorite favorite={ false } />
+        </div>
+        <NewsItem
+          id={ highlighted.id }
+          title={ highlighted.titulo }
+          intro={ highlighted.introducao }
+          date={ new Date(highlighted.data_publicacao) }
+          link={ highlighted.link }
+        />
+      </div>
       <Thumbnail
         src={ parseThumbnail(highlighted.imagens) }
         alt="Thumbnail da Notícia Destaque"
       />
-      <NewsItem
-        id={ highlighted.id }
-        title={ highlighted.titulo }
-        intro={ highlighted.introducao }
-        date={ new Date(highlighted.data_publicacao) }
-        link={ highlighted.link }
-      />
+
     </HighlightedNews>
   );
 }
