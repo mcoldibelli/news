@@ -5,9 +5,7 @@ type ThumbnailProps = {
 
 function Thumbnail({ src, alt }: ThumbnailProps) {
   return (
-    <div>
-      <img src={ src } alt={ alt } />
-    </div>
+    <img src={ src } alt={ alt } />
   );
 }
 
