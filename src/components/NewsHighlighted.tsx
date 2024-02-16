@@ -1,5 +1,6 @@
 import useNews from '../hooks/useNews';
 import { IBGE_HOME } from '../utils/constants';
+import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
 
 const parseThumbnail = (thumbnail: string): string => {
@@ -23,6 +24,13 @@ function NewsHighlighted() {
       <Thumbnail
         src={ parseThumbnail(highlighted.imagens) }
         alt="Thumbnail da Notícia Destaque"
+      />
+      <NewsItem
+        id={ highlighted.id }
+        title={ highlighted.titulo }
+        intro={ highlighted.introducao }
+        date={ new Date(highlighted.data_publicacao) }
+        link={ highlighted.link }
       />
       <div>Notícia Destaque</div>
     </section>
