@@ -2,7 +2,7 @@ import { IoIosHeartEmpty, IoMdHeart } from 'react-icons/io';
 
 function Favorite(isFavorite: boolean) {
   return (
-    <div>
+    <div className="favorite-button">
       {isFavorite ? <IoMdHeart /> : <IoIosHeartEmpty />}
     </div>
   );
