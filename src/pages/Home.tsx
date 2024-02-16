@@ -5,13 +5,15 @@ import NewsHighlighted from '../components/NewsHighlighted';
 
 function Home() {
   return (
-    <main>
+    <>
       <Header />
-      <NewsHighlighted />
-      <FilterNavigation />
-      <NewsGrid />
-      <button>VEJA MAIS</button>
-    </main>
+      <main>
+        <NewsHighlighted />
+        <FilterNavigation />
+        <NewsGrid />
+        <button>VEJA MAIS</button>
+      </main>
+    </>
   );
 }
 
