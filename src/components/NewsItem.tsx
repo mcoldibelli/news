@@ -18,7 +18,9 @@ const daysSincePublished = (date: Date): number => {
 };
 
 function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
-function NewsItem({ title }: NewsItemProps) {
+  const handleReadMoreClick = () => {
+    window.open(link, '_blank');
+  };
 
   return (
       <div>
@@ -32,6 +34,7 @@ function NewsItem({ title }: NewsItemProps) {
           {`${daysSincePublished(date)} dias atrás`}
         </span>
         <button
+          onClick={ handleReadMoreClick }
         >
           Leia a notícia aqui
         </button>
