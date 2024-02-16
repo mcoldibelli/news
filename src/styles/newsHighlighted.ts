@@ -46,6 +46,7 @@ const HighlightedNews = styled.section`
     height: 100%;
     border-radius: 0.7rem;
     object-fit: cover;
+    box-shadow: 0px 20px 20px -10px rgba(0,0,0,0.2);
   }
 
 
