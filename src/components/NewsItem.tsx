@@ -1,4 +1,6 @@
 import NewsCard from '../styles/newsCard';
+import daysSincePublished from '../utils/counter';
+import { NewsItemProps } from '../utils/types';
 
 type NewsItemProps = {
   id: number;
@@ -28,10 +30,6 @@ function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
 
   return (
     <NewsCard className={ String(id) }>
-      <div>
-        <p>Notícia mais recente</p>
-        <span>Favorite button</span>
-      </div>
       <h2>{ title }</h2>
       <p>{ intro }</p>
       <div>
