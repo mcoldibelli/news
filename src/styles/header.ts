@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header`
   align-items: center;
   padding: 1rem;
   max-height: 60px;
-  background-color: ${theme.colors.primaryBackground};
+  background-color: ${theme.colors.secondaryBackground};
 
   img {
     width: 10rem;
@@ -20,7 +20,7 @@ export const HeaderWrapper = styled.header`
     font-size: clamp(1.8rem, 3vw + 1rem, 2.5rem);
     flex-grow: 1;
     text-align: center;
-    color: white;
+    color: ${theme.colors.secondaryText};
   }
 
   @media (max-width: 768px) {
