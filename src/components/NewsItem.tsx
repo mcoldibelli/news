@@ -23,6 +23,7 @@ function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
   };
 
   return (
+    <NewsCard className={ String(id) }>
       <div>
         <p>Notícia mais recente</p>
         <span>Favorite button</span>
@@ -39,6 +40,7 @@ function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
           Leia a notícia aqui
         </button>
       </div>
+    </NewsCard>
   );
 }
 
