@@ -15,3 +15,11 @@ export type NewsContextType = {
   error: any;
   fetchNews: () => void;
 };
+
+export type NewsItemProps = {
+  id: number;
+  title: string;
+  intro: string;
+  date: Date;
+  link: string;
+};
