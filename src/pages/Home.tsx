@@ -1,22 +1,15 @@
+import FilterNavigation from '../components/FilterNavigation';
 import Header from '../components/Header';
+import NewsGrid from '../components/NewsGrid';
+import NewsHighlighted from '../components/NewsHighlighted';
 
 function Home() {
   return (
     <main>
       <Header />
-      <div>
-        <img src="" alt="Thumbnail" />
-        <div>Notícia Destaque</div>
-      </div>
-      <div>
-        <ul>
-          <li>Mais recentes</li>
-          <li>Release</li>
-          <li>Notícia</li>
-          <li>Favoritas</li>
-        </ul>
-      </div>
-      <div>Grid de noticias</div>
+      <NewsHighlighted />
+      <FilterNavigation />
+      <NewsGrid />
       <button>VEJA MAIS</button>
     </main>
   );
