@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import fetchApi from '../service/newsApi';
 import NewsContext from './NewsContext';
+import { NewsContextType } from '../utils/types';
 
 export function NewsProvider({ children }:any) {
   const [newsData, setNewsData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const fetchNews = async () => {
@@ -27,8 +28,8 @@ export function NewsProvider({ children }:any) {
     }
   };
 
-  const ContextValue = {
-    newsData,
+  const ContextValue: NewsContextType = {
+    news: newsData,
     isLoading,
     error,
     fetchNews,
