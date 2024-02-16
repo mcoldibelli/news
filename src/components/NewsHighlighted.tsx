@@ -18,8 +18,6 @@ function NewsHighlighted() {
   const { news } = useNews();
   const highlighted = news[0];
 
-  console.log(highlighted);
-
   return (
     <HighlightedNews>
       <Thumbnail
