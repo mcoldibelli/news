@@ -19,13 +19,17 @@ const NewsCard = styled.div`
 
   h2 {
     font-size: 2.2rem;
-    margin: 1rem 0;
+  }
+
+  .highlighted-bottom-row {
+    margin-top: 1rem;
   }
 
   button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 0.5rem;
+    font-size: 1rem;
     background-color: ${theme.colors.tertiaryBackground};
     color: ${theme.colors.primaryBackground};
     cursor: pointer;
