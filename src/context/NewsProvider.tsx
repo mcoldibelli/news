@@ -8,19 +8,13 @@ export function NewsProvider({ children }:any) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const fetchAndSaveNews = async () => {
+  const fetchNews = async () => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const storedData = localStorage.getItem('newsRaw');
-      if (storedData) {
-        setNewsData(JSON.parse(storedData));
-      } else {
-        const data = await fetchApi();
-        setNewsData(data);
-        localStorage.setItem('newsRaw', JSON.stringify(data));
-      }
+      const data = await fetchApi();
+      setNewsData(data);
     } catch (err: any) {
       setError(err);
     } finally {
@@ -32,7 +26,7 @@ export function NewsProvider({ children }:any) {
     news: newsData,
     isLoading,
     error,
-    fetchNews: fetchAndSaveNews,
+    fetchNews,
   };
 
   return (
