@@ -9,6 +9,15 @@ const HighlightedNews = styled.section`
   background-color: ${theme.colors.primaryBackground};
   margin-top: 90px;
   
+  .favorite-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: ${theme.colors.primaryBackground};
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
   .highlighted-top-row {
     display: flex;
     justify-content: space-between;
