@@ -1,15 +1,29 @@
 import { IoIosHeartEmpty, IoMdHeart } from 'react-icons/io';
+import { useEffect } from 'react';
 import useNews from '../hooks/useNews';
 
 function Favorite({ newsId }: { newsId: number }) {
   const { favoriteNewsIds, setFavoriteNewsIds } = useNews();
   const isFavorite = favoriteNewsIds.includes(newsId);
 
+  // Load from localStorage on mount
+  useEffect(() => {
+    const storedFavorites = JSON.parse(localStorage.getItem('favoriteNewsIds') || '[]');
+    setFavoriteNewsIds(storedFavorites);
+  }, []);
+
   const handleClick = () => {
     if (isFavorite) {
-      setFavoriteNewsIds(favoriteNewsIds.filter((id) => id !== newsId));
+      const newFavoriteList = favoriteNewsIds.filter((id) => id !== newsId);
+
+      setFavoriteNewsIds(newFavoriteList);
+      localStorage.setItem('favoriteNewsIds', JSON.stringify(newFavoriteList));
     } else {
       setFavoriteNewsIds([...favoriteNewsIds, newsId]);
+      localStorage.setItem(
+        'favoriteNewsIds',
+        JSON.stringify([...favoriteNewsIds, newsId]),
+      );
     }
   };
 
