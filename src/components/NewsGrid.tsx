@@ -32,19 +32,17 @@ function NewsGrid() {
   });
 
   return (
-    <>
-      <NewsGridContainer>
-        <ul>
-          {news && newsList}
-        </ul>
-      </NewsGridContainer>
+    <NewsGridContainer>
+      <ul>
+        {news && newsList}
+      </ul>
       <button
         className="load-more"
         onClick={ handleLoadMore }
       >
         VEJA MAIS
       </button>
-    </>
+    </NewsGridContainer>
   );
 }
 
