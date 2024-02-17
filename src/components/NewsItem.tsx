@@ -1,5 +1,5 @@
 import NewsCard from '../styles/newsCard';
-import daysSincePublished from '../utils/counter';
+import { daysSincePublished } from '../utils/counter';
 import { NewsItemProps } from '../utils/types';
 
 function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
