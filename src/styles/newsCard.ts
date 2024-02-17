@@ -6,10 +6,9 @@ const NewsCard = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
-  border: 1px solid ;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
-  height: 100%;
+  height: 22em;
 
   div {
     display: flex;
@@ -19,6 +18,10 @@ const NewsCard = styled.div`
 
   h2 {
     font-size: 2.2rem;
+    line-height: 1;
+    max-height: 6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .highlighted-bottom-row {
