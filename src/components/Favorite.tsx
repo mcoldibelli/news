@@ -12,6 +12,7 @@ function Favorite({ newsId }: { newsId: number }) {
     setFavoriteNewsIds(storedFavorites);
   }, []);
 
+  // Save to localStorage on change and update state
   const handleClick = () => {
     if (isFavorite) {
       const newFavoriteList = favoriteNewsIds.filter((id) => id !== newsId);
