@@ -16,8 +16,10 @@ export const HeaderWrapper = styled.header`
   max-height: 4.5rem;
 
   border-bottom: 1px solid ${theme.colors.secondaryBackground};
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   background-color: ${theme.colors.primaryBackground};
 
+  // IBGE Logo
   img {
     width: 10rem;
     flex-shrink: 0;
@@ -25,6 +27,7 @@ export const HeaderWrapper = styled.header`
     height: auto;
   }
   
+  // Title on the header
   h1 {
     font-size: clamp(3.2rem, 3vw + 1rem, 2.5rem);
     flex-grow: 1;
@@ -32,6 +35,7 @@ export const HeaderWrapper = styled.header`
     color: ${theme.colors.secondaryText};
   }
 
+  // Clock
   span {
     font-size: 1.2rem;
     color: ${theme.colors.secondaryText};
