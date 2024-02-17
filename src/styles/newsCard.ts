@@ -8,7 +8,6 @@ const NewsCard = styled.div`
   padding: 1rem;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
-  height: 22em;
 
   div {
     display: flex;
@@ -36,6 +35,15 @@ const NewsCard = styled.div`
     background-color: ${theme.colors.tertiaryBackground};
     color: ${theme.colors.primaryBackground};
     cursor: pointer;
+
+    &:hover {
+    background-color: ${theme.colors.primaryText};
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+    &:active {
+      transform: scale(0.98);
+    }
   }
 `;
 
