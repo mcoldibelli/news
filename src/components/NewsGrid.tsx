@@ -1,5 +1,6 @@
 import useNews from '../hooks/useNews';
 import NewsGridContainer from '../styles/newsGridContainer';
+import { formatToDate } from '../utils/counter';
 import NewsItem from './NewsItem';
 
 function NewsGrid() {
@@ -9,14 +10,16 @@ function NewsGrid() {
     return <p>Loading grid...</p>;
   }
 
-  const newsList = news.splice(1, 9).map((item) => {
+  const newsList = news.slice(1, 10).map((item) => {
+    const formattedDate = formatToDate(item.data_publicacao);
+
     return (
       <NewsItem
         key={ item.id }
         id={ item.id }
         title={ item.titulo }
         intro={ item.introducao }
-        date={ new Date(item.data_publicacao) }
+        date={ formattedDate }
         link={ item.link }
       />
     );
