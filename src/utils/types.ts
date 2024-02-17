@@ -1,12 +1,11 @@
 export type NewsType = {
-  title: string;
-  description: string;
+  id: number;
+  titulo: string;
+  introducao: string;
   url: string;
-  urlToImage: string;
-  publishedAt: string;
-  source: {
-    name: string;
-  };
+  data_publicacao: string;
+  link: string;
+  imagens: string;
 };
 
 export type NewsContextType = {
@@ -14,6 +13,8 @@ export type NewsContextType = {
   isLoading: boolean;
   error: any;
   fetchNews: () => void;
+  favoriteNewsIds: number[];
+  setFavoriteNewsIds: (ids: number[]) => void;
 };
 
 export type NewsItemProps = {

@@ -1,6 +1,7 @@
 import NewsCard from '../styles/newsCard';
 import { formatTimeStamp } from '../utils/timeRelated';
 import { NewsItemProps } from '../utils/types';
+import Favorite from './Favorite';
 
 function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
   const handleReadMoreClick = () => {
@@ -14,6 +15,7 @@ function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
       <div className="highlighted-bottom-row">
         <span>
           {`${formatTimeStamp(date)}`}
+          <Favorite newsId={ id } />
         </span>
         <button
           className="read-more-button"

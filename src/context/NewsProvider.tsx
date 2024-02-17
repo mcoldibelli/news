@@ -3,8 +3,9 @@ import fetchApi from '../service/newsApi';
 import NewsContext from './NewsContext';
 import { NewsContextType } from '../utils/types';
 
-export function NewsProvider({ children }:any) {
+export function NewsProvider({ children }: { children: React.ReactNode }) {
   const [newsData, setNewsData] = useState([]);
+  const [favoriteNewsIds, setFavoriteNewsIds] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -27,6 +28,8 @@ export function NewsProvider({ children }:any) {
     isLoading,
     error,
     fetchNews,
+    favoriteNewsIds,
+    setFavoriteNewsIds,
   };
 
   return (
