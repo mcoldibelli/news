@@ -11,7 +11,6 @@ function Home() {
         <NewsHighlighted />
         <FilterNavigation />
         <NewsGrid />
-        <button>VEJA MAIS</button>
       </main>
     </>
   );

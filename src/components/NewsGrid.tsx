@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import useNews from '../hooks/useNews';
 import NewsGridContainer from '../styles/newsGridContainer';
 import { formatToDate } from '../utils/timeRelated';
@@ -5,12 +6,17 @@ import NewsItem from './NewsItem';
 
 function NewsGrid() {
   const { news, isLoading } = useNews();
+  const [displayedNews, setDisplayedNews] = useState(1); // Starts at 1 as number 0 is the highlighted news
 
   if (isLoading) {
     return <p>Loading grid...</p>;
   }
 
-  const newsList = news.slice(1, 10).map((item) => {
+  const handleLoadMore = () => {
+    setDisplayedNews(displayedNews + 9);
+  };
+
+  const newsList = news.slice(displayedNews, displayedNews + 9).map((item) => {
     const formattedDate = formatToDate(item.data_publicacao);
 
     return (
@@ -26,11 +32,19 @@ function NewsGrid() {
   });
 
   return (
-    <NewsGridContainer>
-      <ul>
-        {news && newsList}
-      </ul>
-    </NewsGridContainer>
+    <>
+      <NewsGridContainer>
+        <ul>
+          {news && newsList}
+        </ul>
+      </NewsGridContainer>
+      <button
+        className="load-more"
+        onClick={ handleLoadMore }
+      >
+        VEJA MAIS
+      </button>
+    </>
   );
 }
 
