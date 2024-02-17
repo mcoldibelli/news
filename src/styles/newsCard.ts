@@ -16,11 +16,9 @@ const NewsCard = styled.div`
   }
 
   h2 {
-    font-size: 2.2rem;
+    font-size: clamp(1.5rem, 3vw, 1.7rem);
     line-height: 1;
-    max-height: 6em;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-height: 8em;
   }
 
   .highlighted-bottom-row {
