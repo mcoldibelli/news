@@ -3,6 +3,7 @@ export const theme = {
     // text
     primaryText: 'rgb(0, 0, 0)',
     secondaryText: 'rgb(12,35,92)',
+    highlightedText: 'rgb(200,0, 0)',
 
     // background
     primaryBackground: 'rgb(255,255,255)',
@@ -12,7 +13,8 @@ export const theme = {
     quinaryBackground: 'rgb(38, 94, 131)',
 
     // box
-    boxShadow: '0 0 10px rbga(0, 0, 0, 0.1)',
+    boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px,rgba(0, 0, 0, 0.23) 0px 6px 6px',
     borderLine: '1px solid rgb(89, 89, 89)',
+    borderRadius: '0.7rem',
   },
 };
