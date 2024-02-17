@@ -1,5 +1,4 @@
 import { IoIosHeartEmpty, IoMdHeart } from 'react-icons/io';
-import { useEffect } from 'react';
 import useNews from '../hooks/useNews';
 
 function Favorite({ newsId }: { newsId: number }) {
@@ -13,10 +12,6 @@ function Favorite({ newsId }: { newsId: number }) {
       setFavoriteNewsIds([...favoriteNewsIds, newsId]);
     }
   };
-
-  useEffect(() => {
-    console.log(favoriteNewsIds);
-  }, [favoriteNewsIds]);
 
   return (
     <button

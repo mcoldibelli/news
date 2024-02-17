@@ -2,7 +2,6 @@ import useNews from '../hooks/useNews';
 import HighlightedNews from '../styles/newsHighlighted';
 import { parseThumbnail } from '../utils/imageParser';
 import { NewsType } from '../utils/types';
-import Favorite from './Favorite';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
 
