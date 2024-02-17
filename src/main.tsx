@@ -4,9 +4,9 @@ import App from './App.tsx';
 import { NewsProvider } from './context/NewsProvider.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // <React.StrictMode>
   <NewsProvider>
     <App />
   </NewsProvider>,
-  </React.StrictMode>,
+  // </React.StrictMode>,
 );
