@@ -1,6 +1,6 @@
 import useNews from '../hooks/useNews';
 import NewsGridContainer from '../styles/newsGridContainer';
-import { formatToDate } from '../utils/counter';
+import { formatToDate } from '../utils/timeRelated';
 import NewsItem from './NewsItem';
 
 function NewsGrid() {

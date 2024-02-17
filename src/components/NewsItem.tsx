@@ -1,17 +1,10 @@
 import NewsCard from '../styles/newsCard';
-import { daysSincePublished } from '../utils/counter';
+import { formatTimeStamp } from '../utils/timeRelated';
 import { NewsItemProps } from '../utils/types';
 
 function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
   const handleReadMoreClick = () => {
     window.open(link, '_blank');
-  };
-
-  const timeStampFormatted = () => {
-    if (daysSincePublished(date) === 0) {
-      return 'Publicado Hoje';
-    }
-    return `${daysSincePublished(date)} dias atrás`;
   };
 
   return (
@@ -20,7 +13,7 @@ function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
       <p>{ intro }</p>
       <div className="highlighted-bottom-row">
         <span>
-          {`${timeStampFormatted()}`}
+          {`${formatTimeStamp(date)}`}
         </span>
         <button
           className="read-more-button"
