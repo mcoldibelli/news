@@ -25,6 +25,21 @@ const NewsCard = styled.div`
     margin-top: 1rem;
   }
 
+  span {
+    display: flex;
+    align-items: center;
+  }
+
+  .favorite-button {
+    display: flex;
+    font-size: 1.6rem;
+    padding-left: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: ${theme.colors.primaryBackground};
+  }
+
   .read-more-button {
     padding: 0.5rem 1rem;
     border: none;
