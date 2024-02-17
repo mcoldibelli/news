@@ -1,19 +1,9 @@
 import useNews from '../hooks/useNews';
 import HighlightedNews from '../styles/newsHighlighted';
-import { IBGE_HOME } from '../utils/constants';
+import { parseThumbnail } from '../utils/imageParser';
 import Favorite from './Favorite';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
-
-const parseThumbnail = (thumbnail: string): string => {
-  if (thumbnail) {
-    const parsedThumbnail = JSON.parse(thumbnail);
-
-    return `${IBGE_HOME}${parsedThumbnail.image_intro}`;
-  }
-
-  return 'https://via.placeholder.com/300x200';
-};
 
 function NewsHighlighted() {
   const { news } = useNews();
@@ -24,7 +14,7 @@ function NewsHighlighted() {
       <div className="highlighted-container">
         <div className="highlighted-top-row">
           <p>Notícia mais recente</p>
-          <Favorite favorite={ false } />
+          <Favorite isFavorite={ false } />
         </div>
         <NewsItem
           id={ highlighted.id }
