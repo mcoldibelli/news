@@ -1,20 +1,20 @@
 import useNews from '../hooks/useNews';
 import HighlightedNews from '../styles/newsHighlighted';
 import { parseThumbnail } from '../utils/imageParser';
+import { NewsType } from '../utils/types';
 import Favorite from './Favorite';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
 
 function NewsHighlighted() {
   const { news } = useNews();
-  const highlighted = news[0];
+  const highlighted:NewsType = news[0];
 
   return (
     <HighlightedNews>
       <div className="highlighted-container">
         <div className="highlighted-top-row">
           <p>Notícia mais recente</p>
-          <Favorite isFavorite={ false } />
         </div>
         <NewsItem
           id={ highlighted.id }
