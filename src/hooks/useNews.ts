@@ -22,12 +22,14 @@ const useNews = () => {
       const { news, filterType, setFilteredNews } = context;
 
       const filterFunctions: { [key: string]: () => void } = {
-        mostRecent: () => setFilteredNews(news),
+        mostRecent: () => setFilteredNews(
+          news.filter((item: any) => item.id !== news[0].id),
+        ),
         release: () => setFilteredNews(
-          news.filter((item: any) => item.tipo === 'Release'),
+          news.filter((item: any) => item.tipo === 'Release' && item.id !== news[0].id),
         ),
         news: () => setFilteredNews(
-          news.filter((item: any) => item.tipo === 'Notícia'),
+          news.filter((item: any) => item.tipo === 'Notícia' && item.id !== news[0].id),
         ),
         favorites: () => {
           setFilteredNews(favoriteFilter(news));
