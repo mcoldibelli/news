@@ -24,7 +24,7 @@ const Navigation = styled.nav`
     color: ${theme.colors.primaryText};
     font-size: 1.1rem;
     font-weight: 600;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
   }
 
   button:hover {
