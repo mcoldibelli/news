@@ -15,6 +15,10 @@ export type NewsContextType = {
   fetchNews: () => void;
   favoriteNewsIds: number[];
   setFavoriteNewsIds: (ids: number[]) => void;
+  filterType: string;
+  setFilterType: (type: string) => void;
+  filteredNews: any[];
+  setFilteredNews: (filtered: any) => void;
 };
 
 export type NewsItemProps = {
