@@ -19,8 +19,6 @@ function NewsGrid() {
   const newsList = filteredNews.slice(displayedNews, displayedNews + 9).map((item) => {
     const formattedDate = formatToDate(item.data_publicacao);
 
-    console.log('grid first -> ', filteredNews[0].id);
-
     return (
       <NewsItem
         key={ item.id }
