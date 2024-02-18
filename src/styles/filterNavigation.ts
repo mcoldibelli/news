@@ -18,16 +18,16 @@ const Navigation = styled.nav`
     padding: 0;
   }
 
-  li {
+  button {
+    border: none;
+    background-color: transparent;
     color: ${theme.colors.primaryText};
     font-size: 1.1rem;
     font-weight: 600;
-    padding-left: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: 1rem;
   }
 
-  li:hover {
+  button:hover {
     cursor: pointer;
     color: ${theme.colors.secondaryText};
     text-decoration: underline;
