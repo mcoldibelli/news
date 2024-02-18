@@ -5,8 +5,8 @@ import { formatToDate } from '../utils/timeRelated';
 import NewsItem from './NewsItem';
 
 function NewsGrid() {
-  const { news, isLoading } = useNews();
-  const [displayedNews, setDisplayedNews] = useState(1); // Starts at 1 as number 0 is the highlighted news
+  const { filteredNews, isLoading } = useNews();
+  const [displayedNews, setDisplayedNews] = useState(0);
 
   if (isLoading) {
     return <p>Loading grid...</p>;
@@ -16,8 +16,10 @@ function NewsGrid() {
     setDisplayedNews(displayedNews + 9);
   };
 
-  const newsList = news.slice(displayedNews, displayedNews + 9).map((item) => {
+  const newsList = filteredNews.slice(displayedNews, displayedNews + 9).map((item) => {
     const formattedDate = formatToDate(item.data_publicacao);
+
+    console.log('grid first -> ', filteredNews[0].id);
 
     return (
       <NewsItem
@@ -34,7 +36,7 @@ function NewsGrid() {
   return (
     <NewsGridContainer>
       <ul>
-        {news && newsList}
+        {filteredNews.length > 0 && newsList}
       </ul>
       <button
         className="load-more"

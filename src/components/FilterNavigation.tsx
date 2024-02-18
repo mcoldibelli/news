@@ -6,7 +6,6 @@ function FilterNavigation() {
 
   const handleFilterClick = (filterType: string) => {
     setFilterType(filterType);
-    console.log(filterType);
   };
 
   return (
