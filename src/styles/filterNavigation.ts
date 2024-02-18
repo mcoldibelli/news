@@ -32,6 +32,42 @@ const Navigation = styled.nav`
     color: ${theme.colors.secondaryText};
     text-decoration: underline;
 }
+
+  fieldset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: none;
+    padding: 0;
+  }
+  .search-input {
+    background-color: ${theme.colors.secondaryBackground};
+    color: ${theme.colors.primaryText};
+    border-radius: 0.5rem;
+    border: none;
+    box-shadow: 0 2px 3px -1px rgba(0, 0, 0, 0.3); 
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 0.5rem;
+    width: 100px;
+
+    transition: width 0.3s ease-in-out;
+
+    &:focus {
+      width: 250px;
+      box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.5); 
+    }
+  }
+
+  .search-icon {
+    display: flex;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: ${theme.colors.primaryBackground};
+    
+  }
 `;
 
 export default Navigation;
