@@ -9,22 +9,20 @@ export type NewsType = {
 };
 
 export type NewsContextType = {
-  news: any[];
+  news: NewsType[];
+  filterType: string;
+  filteredNews: NewsType[];
+  favoriteNewsIds: number[];
   isLoading: boolean;
   error: any;
-  fetchNews: () => void;
-  favoriteNewsIds: number[];
-  setFavoriteNewsIds: (ids: number[]) => void;
-  filterType: string;
   setFilterType: (type: string) => void;
-  filteredNews: any[];
-  setFilteredNews: (filtered: any) => void;
+  setFilteredNews: (filtered: NewsType[]) => void;
+  setFavoriteNewsIds: (ids: number[]) => void;
+  fetchNextPage: () => void;
+  searchText: string;
+  setSearchText: (text: string) => void;
 };
 
 export type NewsItemProps = {
-  id: number;
-  title: string;
-  intro: string;
-  date: Date;
-  link: string;
+  newsItem: NewsType;
 };
