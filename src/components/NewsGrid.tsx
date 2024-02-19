@@ -4,7 +4,7 @@ import NewsItem from './NewsItem';
 import useFetchNews from '../hooks/useFetchNews';
 
 function NewsGrid() {
-  const { filteredNews, fetchState, fetchNextPage } = useFetchNews();
+  const { filteredNews, fetchState } = useFetchNews();
   const [displayedNews, setDisplayedNews] = useState(0);
 
   if (fetchState.status === 'loading') {
