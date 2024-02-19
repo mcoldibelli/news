@@ -4,10 +4,12 @@ import { NewsType } from '../utils/types';
 import Favorite from './Favorite';
 
 function NewsItem({ id, title, summary, publishedAt, link }: NewsType) {
+  // opens another tab when the user clicks on the "Leia a notícia aqui" button
   const onReadNews = () => {
     window.open(link, '_blank');
   };
 
+  // formats the date to X days ago
   const formattedDate = dateToString(publishedAt);
 
   return (
