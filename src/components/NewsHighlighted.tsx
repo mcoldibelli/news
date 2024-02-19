@@ -1,15 +1,27 @@
 import useNews from '../hooks/useFetchNews';
 import HighlightedNews from '../styles/newsHighlighted';
 import { parseThumbnail } from '../utils/helpers';
-import { NewsType } from '../utils/types';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
 
 function NewsHighlighted() {
-  const { news } = useNews();
-  const highlighted:NewsType = news[0];
+  const { fetchState } = useNews();
+  const { data } = fetchState;
+  const highlighted = data[0];
 
-  return (
+  if (fetchState.status === 'loading') {
+    return <div>Loading highlighted news...</div>;
+  }
+
+  if (fetchState.status === 'error') {
+    return (
+      <div>
+        {`Error fetching highlighted news: ${fetchState.error.message}`}
+      </div>
+    );
+  }
+
+  return (highlighted && (
     <HighlightedNews>
       <div className="highlighted-container">
         <div className="highlighted-top-row">
@@ -29,7 +41,7 @@ function NewsHighlighted() {
       />
 
     </HighlightedNews>
-  );
+  ));
 }
 
 export default NewsHighlighted;
