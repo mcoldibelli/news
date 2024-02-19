@@ -23,14 +23,15 @@ function NewsGrid() {
 
   const newsList = filteredNews.slice(displayedNews, displayedNews + 9).map((item) => {
     return (
-      <NewsItem
-        key={ item.id }
-        id={ item.id }
-        title={ item.title }
-        summary={ item.summary }
-        publishedAt={ item.publishedAt }
-        link={ item.link }
-      />
+      <li key={ item.id }>
+        <NewsItem
+          id={ item.id }
+          title={ item.title }
+          summary={ item.summary }
+          publishedAt={ item.publishedAt }
+          link={ item.link }
+        />
+      </li>
     );
   });
 
