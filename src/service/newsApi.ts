@@ -21,6 +21,7 @@ const fetchApi = async (page = 1, pageSize = 10) => {
       publishedAt: parseDate(item.data_publicacao),
       link: item.link,
       images: item.imagens,
+      type: item.tipo,
     }));
 
     return formattedNewsData;
