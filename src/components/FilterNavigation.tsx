@@ -1,5 +1,5 @@
 import { IoMdSearch } from 'react-icons/io';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from '../styles/filterNavigation';
 import useFilters from '../hooks/useFilters';
 
@@ -15,6 +15,10 @@ function FilterNavigation() {
   function getFilterClass(filterType: string) {
     return filterType === currentFilter ? 'activeFilter' : '';
   }
+
+  useEffect(() => {
+    setFilterType('search');
+  }, []);
 
   return (
     <Navigation>

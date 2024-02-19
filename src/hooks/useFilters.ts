@@ -29,6 +29,18 @@ const useFilters = () => {
             (item: NewsType) => favoriteNewsIds.includes(item.id),
           ));
         },
+        search: () => {
+          const lowerCaseSearch = searchText.toLowerCase();
+          setFilteredNews(news.filter(
+            (item: NewsType) => {
+              const lowerCaseTitle = item.title.toLowerCase();
+              const lowerCaseContent = item.summary.toLowerCase();
+
+              return lowerCaseTitle.includes(lowerCaseSearch)
+              || lowerCaseContent.includes(lowerCaseSearch);
+            },
+          ));
+        },
       };
 
       const filterFunction = filterFunctions[filterType];
