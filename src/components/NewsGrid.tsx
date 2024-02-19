@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import NewsGridContainer from '../styles/newsGridContainer';
 import NewsItem from './NewsItem';
-import useFetchNews from '../hooks/useFetchNews';
+import useFilters from '../hooks/useFilters';
+import NewsContext from '../context/NewsContext';
 
 function NewsGrid() {
-  const { filteredNews, fetchState } = useFetchNews();
+  const { fetchState } = useContext(NewsContext);
+  const { filteredNews } = useFilters();
   const [displayedNews, setDisplayedNews] = useState(0);
 
   if (fetchState.status === 'loading') {
@@ -37,12 +39,14 @@ function NewsGrid() {
       <ul>
         {filteredNews.length > 0 && newsList}
       </ul>
-      <button
-        className="load-more"
-        onClick={ handleLoadMore }
-      >
-        VEJA MAIS
-      </button>
+      {filteredNews.length >= 9 && (
+        <button
+          className="load-more"
+          onClick={ handleLoadMore }
+        >
+          VEJA MAIS
+        </button>
+      )}
     </NewsGridContainer>
   ));
 }

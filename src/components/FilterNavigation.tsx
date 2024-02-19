@@ -1,10 +1,10 @@
 import { IoMdSearch } from 'react-icons/io';
 import { useState } from 'react';
-import useNews from '../hooks/useFetchNews';
 import Navigation from '../styles/filterNavigation';
+import useFilters from '../hooks/useFilters';
 
 function FilterNavigation() {
-  const { setFilterType, searchText, setSearchText } = useNews();
+  const { setFilterType, searchText, setSearchText } = useFilters();
   const [currentFilter, setCurrentFilter] = useState('mostRecent');
 
   const handleFilterClick = (filterType: string) => {
