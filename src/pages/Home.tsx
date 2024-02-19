@@ -7,9 +7,9 @@ function Home() {
   return (
     <>
       <Header />
+      <FilterNavigation />
       <main>
         <NewsHighlighted />
-        <FilterNavigation />
         <NewsGrid />
       </main>
     </>
