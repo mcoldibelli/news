@@ -2,10 +2,18 @@ import { styled } from 'styled-components';
 import { theme } from './theme';
 
 const Navigation = styled.nav`
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  z-index: 10;
+  background-color: ${theme.colors.primaryBackground};
+  border-radius: 0 0 1rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 60%;
+  width: 55%;
   border-top: 1px solid ${theme.colors.secondaryBackground};
   border-bottom: 1px solid ${theme.colors.secondaryBackground};
   margin: 0 auto;
@@ -33,13 +41,14 @@ const Navigation = styled.nav`
     text-decoration: underline;
 }
 
-  fieldset {
+  div {
     display: flex;
     flex-direction: row;
     align-items: center;
     border: none;
     padding: 0;
   }
+  
   .search-input {
     background-color: ${theme.colors.secondaryBackground};
     color: ${theme.colors.primaryText};
