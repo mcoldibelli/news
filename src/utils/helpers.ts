@@ -11,7 +11,7 @@ export const parseThumbnail = (thumbnail: string): string => {
   return 'https://via.placeholder.com/300x200';
 };
 
-export const daysSincePublished = (date: Date | undefined): number => {
+export const daysSincePublished = (date: Date): number => {
   if (!date) return 0;
 
   const now = new Date();
@@ -26,15 +26,17 @@ export const daysSincePublished = (date: Date | undefined): number => {
   return differenceInDays;
 };
 
-export const formatTimeStamp = (date: Date):string => {
+export const dateToString = (date: Date):string => {
   if (daysSincePublished(date) === 0) {
     return 'Publicado Hoje';
   }
   return `${daysSincePublished(date)} dias atrás`;
 };
 
-export const formatToDate = (date: string): Date => {
+export const parseDate = (date: string): Date => {
   const dateString = date;
   const dateFormat = 'dd/MM/yyyy HH:mm:ss';
-  const dateObject = parse(dateString, dateFormat, new Date()); return dateObject;
+  const dateObject = parse(dateString, dateFormat, new Date());
+
+  return dateObject;
 };
