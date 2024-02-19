@@ -1,15 +1,18 @@
 import { useState } from 'react';
-import useNews from '../hooks/useNews';
 import NewsGridContainer from '../styles/newsGridContainer';
-import { formatToDate } from '../utils/timeRelated';
 import NewsItem from './NewsItem';
+import useFetchNews from '../hooks/useFetchNews';
 
 function NewsGrid() {
-  const { filteredNews, isLoading } = useNews();
+  const { filteredNews, fetchState, fetchNextPage } = useFetchNews();
   const [displayedNews, setDisplayedNews] = useState(0);
 
-  if (isLoading) {
+  if (fetchState.status === 'loading') {
     return <p>Loading grid...</p>;
+  }
+
+  if (fetchState.status === 'error') {
+    return (<div>{`Error: ${fetchState.error.message}`}</div>);
   }
 
   const handleLoadMore = () => {
@@ -17,8 +20,6 @@ function NewsGrid() {
   };
 
   const newsList = filteredNews.slice(displayedNews, displayedNews + 9).map((item) => {
-    const formattedDate = formatToDate(item.data_publicacao);
-
     return (
       <NewsItem
         key={ item.id }
@@ -31,7 +32,7 @@ function NewsGrid() {
     );
   });
 
-  return (
+  return (fetchState.status === 'success' && (
     <NewsGridContainer>
       <ul>
         {filteredNews.length > 0 && newsList}
@@ -43,7 +44,7 @@ function NewsGrid() {
         VEJA MAIS
       </button>
     </NewsGridContainer>
-  );
+  ));
 }
 
 export default NewsGrid;
