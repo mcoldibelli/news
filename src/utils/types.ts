@@ -1,11 +1,12 @@
 export type NewsType = {
   id: number;
-  titulo: string;
-  introducao: string;
-  url: string;
-  data_publicacao: string;
+  title: string;
+  summary: string;
+  publishedAt: Date;
   link: string;
-  imagens: string;
+  images?: string | '';
+  url?: string | '';
+  type?: string | '';
 };
 
 export type NewsContextType = {
@@ -19,7 +20,6 @@ export type NewsContextType = {
   setFilteredNews: (filtered: NewsType[]) => void;
   setFavoriteNewsIds: (ids: number[]) => void;
   fetchNextPage: () => void;
-  searchText: string;
   setSearchText: (text: string) => void;
 };
 
