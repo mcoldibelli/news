@@ -12,6 +12,7 @@ function Favorite({ newsId }: { newsId: number }) {
   return (
     <button
       className="favorite-button"
+      aria-label="Favorite"
       onClick={ handleClick }
     >
       {isFavorite ? <IoMdHeart /> : <IoIosHeartEmpty />}
