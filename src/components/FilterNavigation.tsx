@@ -34,7 +34,7 @@ function FilterNavigation() {
         </div>
       </form>
 
-      <nav className="filter-buttons-container">
+      <ul className="filter-buttons-container">
         <li>
           <button
             tabIndex={ 0 }
@@ -68,7 +68,7 @@ function FilterNavigation() {
             Favoritas
           </button>
         </li>
-      </nav>
+      </ul>
     </Navigation>
   );
 }
