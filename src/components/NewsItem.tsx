@@ -1,25 +1,29 @@
 import NewsCard from '../styles/newsCard';
-import { formatTimeStamp } from '../utils/timeRelated';
-import { NewsItemProps } from '../utils/types';
+import { dateToString } from '../utils/helpers';
+import { NewsType } from '../utils/types';
 import Favorite from './Favorite';
 
-function NewsItem({ id, title, intro, date, link }: NewsItemProps) {
-  const handleReadMoreClick = () => {
+function NewsItem(news: NewsType) {
+  const {
+    id, title, summary, publishedAt, link,
+  } = news;
+
+  const handleReadNews = () => {
     window.open(link, '_blank');
   };
 
   return (
     <NewsCard className={ String(id) }>
       <h2>{ title }</h2>
-      <p>{ intro }</p>
+      <p>{ summary }</p>
       <div className="highlighted-bottom-row">
         <span>
-          {`${formatTimeStamp(date)}`}
+          {`${dateToString(publishedAt)}`}
           <Favorite newsId={ id } />
         </span>
         <button
           className="read-more-button"
-          onClick={ handleReadMoreClick }
+          onClick={ handleReadNews }
         >
           Leia a notícia aqui
         </button>

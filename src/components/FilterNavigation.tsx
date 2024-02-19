@@ -1,5 +1,5 @@
 import { IoMdSearch } from 'react-icons/io';
-import useNews from '../hooks/useNews';
+import useNews from '../hooks/useFetchNews';
 import Navigation from '../styles/filterNavigation';
 
 function FilterNavigation() {
@@ -12,7 +12,7 @@ function FilterNavigation() {
   return (
     <Navigation>
       <ul>
-        <fieldset>
+        <div>
           <button
             aria-label="Search"
             className="search-icon"
@@ -27,7 +27,7 @@ function FilterNavigation() {
             onChange={ (e) => setSearchText(e.target.value) }
           />
 
-        </fieldset>
+        </div>
 
         <button
           onClick={ () => handleFilterClick('mostRecent') }

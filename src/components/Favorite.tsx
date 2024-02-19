@@ -1,6 +1,6 @@
 import { IoIosHeartEmpty, IoMdHeart } from 'react-icons/io';
 import { useEffect } from 'react';
-import useNews from '../hooks/useNews';
+import useNews from '../hooks/useFetchNews';
 
 function Favorite({ newsId }: { newsId: number }) {
   const { favoriteNewsIds, setFavoriteNewsIds } = useNews();

@@ -1,6 +1,6 @@
-import useNews from '../hooks/useNews';
+import useNews from '../hooks/useFetchNews';
 import HighlightedNews from '../styles/newsHighlighted';
-import { parseThumbnail } from '../utils/imageParser';
+import { parseThumbnail } from '../utils/helpers';
 import { NewsType } from '../utils/types';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
@@ -17,14 +17,14 @@ function NewsHighlighted() {
         </div>
         <NewsItem
           id={ highlighted.id }
-          title={ highlighted.titulo }
-          intro={ highlighted.introducao }
-          date={ new Date(highlighted.data_publicacao) }
+          title={ highlighted.title }
+          summary={ highlighted.summary }
+          publishedAt={ (new Date(highlighted.publishedAt)) }
           link={ highlighted.link }
         />
       </div>
       <Thumbnail
-        src={ parseThumbnail(highlighted.imagens) }
+        src={ parseThumbnail(highlighted.images ?? '') }
         alt="Thumbnail da Notícia Destaque"
       />
 
