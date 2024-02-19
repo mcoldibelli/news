@@ -10,9 +10,11 @@ function HeaderDate() {
     return () => clearInterval(interval);
   }, []);
 
+  const formatDate = (date: Date) => date.toLocaleString('pt-br');
+
   return (
     <span>
-      {today && today.toLocaleString('pt-br')}
+      {formatDate(today)}
     </span>
   );
 }
