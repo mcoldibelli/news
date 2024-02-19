@@ -23,8 +23,6 @@ const fetchApi = async (page = 1, pageSize = 10) => {
       images: item.imagens,
     }));
 
-    console.log('formattedNewsData', formattedNewsData);
-
     return formattedNewsData;
   } catch (err: any) {
     if (err.name === 'AbortError') {
