@@ -1,41 +1,32 @@
 import { useState } from 'react';
-import fetchApi from '../service/newsApi';
 import NewsContext from './NewsContext';
-import { NewsContextType } from '../utils/types';
+import { FetchStateType, NewsContextType, NewsType } from '../utils/types';
 
 export function NewsProvider({ children }: { children: React.ReactNode }) {
-  const [newsData, setNewsData] = useState([]);
-  const [filteredNews, setFilteredNews] = useState([]);
+  // News related states
+  const [fetchState, setFetchState] = useState<FetchStateType>({
+    data: [],
+    status: 'idle',
+    error: null,
+  });
+
+  // Filter related states
+  const [filteredNews, setFilteredNews] = useState<NewsType[]>([]);
   const [favoriteNewsIds, setFavoriteNewsIds] = useState<number[]>([]);
   const [filterType, setFilterType] = useState('mostRecent');
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const fetchNews = async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const data = await fetchApi();
-      setNewsData(data);
-    } catch (err: any) {
-      setError(err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const [searchText, setSearchText] = useState('');
 
   const ContextValue: NewsContextType = {
-    news: newsData,
-    isLoading,
-    error,
-    fetchNews,
-    favoriteNewsIds,
-    setFavoriteNewsIds,
+    fetchState,
     filterType,
-    setFilterType,
     filteredNews,
+    favoriteNewsIds,
+    searchText,
+    setFetchState,
+    setFilterType,
+    setSearchText,
     setFilteredNews,
+    setFavoriteNewsIds,
   };
 
   return (

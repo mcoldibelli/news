@@ -14,20 +14,21 @@ export type ThumbnailProps = {
   alt: string;
 };
 
+export type FetchStateType = {
+  status: 'idle' | 'loading' | 'success' | 'error';
+  data: NewsType[];
+  error: any;
+};
+
 export type NewsContextType = {
-  news: NewsType[];
+  fetchState: FetchStateType;
   filterType: string;
   filteredNews: NewsType[];
   favoriteNewsIds: number[];
-  isLoading: boolean;
-  error: any;
+  searchText: string;
+  setFetchState: (state: FetchStateType) => void;
   setFilterType: (type: string) => void;
-  setFilteredNews: (filtered: NewsType[]) => void;
-  setFavoriteNewsIds: (ids: number[]) => void;
-  fetchNextPage: () => void;
   setSearchText: (text: string) => void;
-};
-
-export type NewsItemProps = {
-  newsItem: NewsType;
+  setFilteredNews: (news: NewsType[]) => void;
+  setFavoriteNewsIds: (ids: number[]) => void;
 };

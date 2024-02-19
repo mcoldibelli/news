@@ -1,13 +1,13 @@
-import useNews from '../hooks/useFetchNews';
+import { useContext } from 'react';
+import NewsContext from '../context/NewsContext';
 import HighlightedNews from '../styles/newsHighlighted';
 import { parseThumbnail } from '../utils/helpers';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
 
 function NewsHighlighted() {
-  const { fetchState } = useNews();
-  const { data } = fetchState;
-  const highlighted = data[0];
+  const { fetchState } = useContext(NewsContext);
+  const highlighted = fetchState.data[0];
 
   if (fetchState.status === 'loading') {
     return <div>Loading highlighted news...</div>;
