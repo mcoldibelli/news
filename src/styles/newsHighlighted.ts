@@ -4,6 +4,8 @@ import { theme } from './theme';
 const HighlightedNews = styled.section`
   display: grid;
   grid-template-columns: 3fr 2fr;
+  justify-content: center;
+  align-items: center;
   gap: 1.5rem;
   padding: 2rem;
   margin-top: 90px;
@@ -58,8 +60,7 @@ const HighlightedNews = styled.section`
   // cover image
   img {
     object-fit: cover;
-    width: 100%;
-    height: 100%;
+    width: 90%;
     border-radius: ${theme.colors.borderRadius};
     box-shadow: ${theme.colors.boxShadow};
   }
