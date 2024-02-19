@@ -2,13 +2,13 @@ import { styled } from 'styled-components';
 import { theme } from './theme';
 
 const NewsGridContainer = styled.section`
-padding: 1rem;
+padding: 0 1rem;
 
 ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  padding: 2rem;
+  padding: 0 2rem;
 }
 
 li {
@@ -19,8 +19,10 @@ li {
   }
 
 .load-more {
+  position: relative;
+  bottom: 0;
   display: block;
-  width: 20%;
+  width: 15%;
   margin: 1rem auto;
   padding: 0.5rem 1rem;
   border: none;
