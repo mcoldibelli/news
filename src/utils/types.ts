@@ -9,6 +9,11 @@ export type NewsType = {
   type?: string | '';
 };
 
+export type ThumbnailProps = {
+  src: string;
+  alt: string;
+};
+
 export type NewsContextType = {
   news: NewsType[];
   filterType: string;

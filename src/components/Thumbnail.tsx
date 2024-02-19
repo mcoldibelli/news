@@ -1,7 +1,4 @@
-type ThumbnailProps = {
-  src: string;
-  alt: string;
-};
+import { ThumbnailProps } from '../utils/types';
 
 function Thumbnail({ src, alt }: ThumbnailProps) {
   return (
