@@ -24,9 +24,9 @@ function NewsGrid() {
       <NewsItem
         key={ item.id }
         id={ item.id }
-        title={ item.titulo }
-        intro={ item.introducao }
-        date={ formattedDate }
+        title={ item.title }
+        summary={ item.summary }
+        publishedAt={ item.publishedAt }
         link={ item.link }
       />
     );
