@@ -13,43 +13,50 @@ const useFilters = () => {
       if (fetchState.status !== 'success') return;
 
       const news = fetchState.data;
+      let filteredData = news;
 
-      const filterFunctions: { [key: string]: () => void } = {
-        mostRecent: () => setFilteredNews(news.filter(
+      if (filterType === 'mostRecent') {
+        filteredData = news.filter(
           (item: NewsType) => item.id !== news[0].id,
-        )),
-        release: () => setFilteredNews(news.filter(
-          (item: NewsType) => item.type === 'Release' && item.id !== news[0].id,
-        )),
-        news: () => setFilteredNews(news.filter(
-          (item: NewsType) => item.type === 'Notícia' && item.id !== news[0].id,
-        )),
-        favorites: () => {
-          setFilteredNews(news.filter(
-            (item: NewsType) => favoriteNewsIds.includes(item.id),
-          ));
-        },
-        search: () => {
-          const lowerCaseSearch = searchText.toLowerCase();
-          setFilteredNews(news.filter(
-            (item: NewsType) => {
-              const lowerCaseTitle = item.title.toLowerCase();
-              const lowerCaseContent = item.summary.toLowerCase();
-
-              return lowerCaseTitle.includes(lowerCaseSearch)
-              || lowerCaseContent.includes(lowerCaseSearch);
-            },
-          ));
-        },
-      };
-
-      const filterFunction = filterFunctions[filterType];
-      if (filterFunction) {
-        filterFunction();
+        );
       }
+
+      if (filterType === 'release') {
+        filteredData = news.filter(
+          (item: NewsType) => item.type === 'Release' && item.id !== news[0].id,
+        );
+      }
+
+      if (filterType === 'news') {
+        filteredData = news.filter(
+          (item: NewsType) => item.type === 'Notícia' && item.id !== news[0].id,
+        );
+      }
+
+      if (filterType === 'favorites') {
+        filteredData = news.filter(
+          (item: NewsType) => favoriteNewsIds.includes(item.id),
+        );
+      }
+      if (searchText) {
+        const lowerCaseSearch = searchText.toLowerCase();
+
+        filteredData = filteredData.filter(
+          (item: NewsType) => {
+            const lowerCaseTitle = item.title.toLowerCase();
+            const lowerCaseContent = item.summary.toLowerCase();
+
+            return lowerCaseTitle.includes(lowerCaseSearch)
+              || lowerCaseContent.includes(lowerCaseSearch);
+          },
+        );
+      }
+      setFilteredNews(filteredData);
     };
     applyFilters();
-  }, [searchText, filterType]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchText, filterType, favoriteNewsIds]);
 
   return { filteredNews, setFilteredNews, setFilterType, searchText, setSearchText };
 };

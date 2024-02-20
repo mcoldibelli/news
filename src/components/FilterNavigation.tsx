@@ -16,9 +16,14 @@ function FilterNavigation() {
     return filterType === currentFilter ? 'activeFilter' : '';
   }
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilterType('search');
+    setSearchText(e.target.value);
+  };
+
   useEffect(() => {
     setFilterType('search');
-  }, []);
+  }, [setFilterType]);
 
   return (
     <Navigation>
@@ -32,7 +37,7 @@ function FilterNavigation() {
             placeholder="Buscar"
             type="text"
             value={ searchText }
-            onChange={ (e) => setSearchText(e.target.value) }
+            onChange={ handleChange }
           />
 
         </div>
