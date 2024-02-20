@@ -38,7 +38,7 @@ const Navigation = styled.div`
     }
   }
   
-  div {
+  form {
     display: flex;
     flex-direction: row;
     align-items: center;

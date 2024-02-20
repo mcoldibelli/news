@@ -27,20 +27,21 @@ function FilterNavigation() {
 
   return (
     <Navigation>
-      <form action="">
-        <div>
-          <button aria-label="Search" className="search-icon" tabIndex={ 0 }>
-            <IoMdSearch />
-          </button>
-          <input
-            className="search-input"
-            placeholder="Buscar"
-            type="text"
-            value={ searchText }
-            onChange={ handleChange }
-          />
-
-        </div>
+      <form
+        action="/"
+        method="get"
+        aria-label="Search"
+      >
+        <button aria-label="Search" className="search-icon" tabIndex={ 0 }>
+          <IoMdSearch />
+        </button>
+        <input
+          className="search-input"
+          placeholder="Buscar"
+          type="text"
+          value={ searchText }
+          onChange={ handleChange }
+        />
       </form>
 
       <ul className="filter-buttons-container">
