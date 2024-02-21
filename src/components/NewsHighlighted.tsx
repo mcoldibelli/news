@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import NewsContext from '../context/NewsContext';
-import HighlightedNews from '../styles/newsHighlighted';
 import { parseThumbnail } from '../utils/helpers';
 import NewsItem from './NewsItem';
 import Thumbnail from './Thumbnail';
@@ -22,11 +21,9 @@ function NewsHighlighted() {
   }
 
   return (highlighted && (
-    <HighlightedNews>
+    <section>
       <div className="highlighted-container">
-        <div className="highlighted-top-row">
-          <p>Notícia mais recente</p>
-        </div>
+        <p>Notícia mais recente</p>
         <NewsItem
           id={ highlighted.id }
           title={ highlighted.title }
@@ -39,8 +36,7 @@ function NewsHighlighted() {
         src={ parseThumbnail(highlighted.images ?? '') }
         alt="Thumbnail da Notícia Destaque"
       />
-
-    </HighlightedNews>
+    </section>
   ));
 }
 
