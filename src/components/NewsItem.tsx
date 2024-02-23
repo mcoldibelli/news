@@ -17,7 +17,7 @@ function NewsItem(
     >
       <div className="relative">
         <img
-          className="object-cover w-full rounded-t-lg h-96
+          className="rounded-t-lg h-96
           md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
           src={ parseThumbnail(images ?? '') }
           alt=""
@@ -44,6 +44,7 @@ function NewsItem(
         <p className="mb-3 font-normal text-gray-700">
           {summary}
         </p>
+        <div className="container flex flex-row justify-between">
           <button
             onClick={ onReadNews }
             className="bg-gray-200 text-black px-2 py-1 mt-2
