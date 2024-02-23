@@ -1,14 +1,12 @@
 /* eslint-disable react/jsx-max-depth */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import useFilters from '../hooks/useFilters';
 
 function FilterNavigation() {
   const { setFilterType } = useFilters();
-  const [currentFilter, setCurrentFilter] = useState('mostRecent');
 
   const handleFilterClick = (filterType: string) => {
     setFilterType(filterType);
-    setCurrentFilter(filterType);
   };
 
   useEffect(() => {
