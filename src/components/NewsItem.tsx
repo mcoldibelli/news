@@ -1,59 +1,67 @@
-import { dateToString } from '../utils/helpers';
+import { dateToString, parseThumbnail } from '../utils/helpers';
 import { NewsType } from '../utils/types';
 import Favorite from './Favorite';
 
-function NewsItem({ id, title, summary, publishedAt, link }: NewsType) {
+function NewsItem(
+  { id, title, summary, publishedAt, link, images, isHighlight }: NewsType,
+) {
   // opens another tab when the user clicks on the "Leia a notícia aqui" button
   const onReadNews = () => {
     window.open(link, '_blank');
   };
 
-  // formats the date to X days ago
-  const newsDate = dateToString(publishedAt);
-
   return (
     <article
-      key={ id }
-      className="flex max-w-xl flex-col items-start justify-between"
+      className="items-center bg-white border border-gray-200
+      rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100"
     >
-      <div className="flex items-center gap-x-4 text-xs">
-        <time
-          dateTime={ publishedAt.toISOString() }
-          className="text-gray-500"
+      <div className="relative">
+        <img
+          className="object-cover w-full rounded-t-lg h-96
+          md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
+          src={ parseThumbnail(images ?? '') }
+          alt=""
+        />
+        <div
+          className="absolute top-0 right-0
+      text-white font-bold px-2 py-1 m-2 rounded-md"
         >
-          {newsDate}
-        </time>
-        <a
-          href="categoria"
-          className="relative z-10 rounded-full bg-gray-50
-          px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-        >
-          categoria
-        </a>
-        <Favorite newsId={ id } />
-      </div>
+          <Favorite newsId={ id } />
+        </div>
 
-      <div className="group relative">
-        <h3
-          className="mt-3 text-lg font-semibold leading-6
-                 text-gray-900 group-hover:text-gray-600"
+        { isHighlight ? (
+          <div
+            className="
+        absolute bottom-0 right-0 bg-red-500
+        text-white px-2 py-1 m-2 rounded-md text-xs"
+          >
+            Mais recente
+          </div>
+        ) : (
+          <div
+            className="absolute bottom-0 right-0 bg-white
+          text-black px-2 py-1 m-2 rounded-md text-xs"
+          >
+            {dateToString(publishedAt)}
+          </div>
+        )}
+      </div>
+      <div className="flex flex-col justify-between p-4 leading-normal">
+        <h5
+          className="mb-2 text-2xl font-bold tracking-tight text-gray-900"
         >
-          <a href="teste">
-            <span className="absolute inset-0" />
-            {title}
-          </a>
-        </h3>
-        <p
-          className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600"
-        >
+          {title}
+        </h5>
+        <p className="mb-3 font-normal text-gray-700">
           {summary}
         </p>
-
         <button
-          className="read-more-button"
           onClick={ onReadNews }
+          className="bg-gray-200 text-black px-2 py-1 mt-2
+        rounded-lg text-xs hover:bg-sky-600 focus:outline-none
+        focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 w-fit"
         >
-          Leia a notícia aqui
+          Leia mais
         </button>
       </div>
     </article>

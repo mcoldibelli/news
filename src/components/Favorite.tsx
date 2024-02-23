@@ -1,4 +1,4 @@
-import { IoIosHeartEmpty, IoMdHeart } from 'react-icons/io';
+import { IoMdHeart } from 'react-icons/io';
 import useFavorites from '../hooks/useFavorites';
 
 function Favorite({ newsId }: { newsId: number }) {
@@ -15,7 +15,9 @@ function Favorite({ newsId }: { newsId: number }) {
       aria-label="Favorite"
       onClick={ handleClick }
     >
-      {isFavorite ? <IoMdHeart /> : <IoIosHeartEmpty />}
+      {isFavorite
+        ? <IoMdHeart color="red" size={ 28 } />
+        : <IoMdHeart color="white" size={ 28 } />}
     </button>
   );
 }

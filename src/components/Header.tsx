@@ -1,18 +1,24 @@
 function Header() {
   return (
-    <div className=" bg-gray-200 flex text-center">
-      <div className="max-w-2xl mx-auto px-4 lg:mx-0">
-        <h1
-          className="my-2 text-5xl font-bold tracking-tight
-           text-gray-900 sm:text-6xl"
+    <nav className="bg-gray-100 border-gray-200 shadow-lg">
+      <div
+        className="max-w-screen-xl flex flex-wrap items-center
+          justify-between mx-auto p-4"
+      >
+        <a
+          href="teste"
+          className="flex items-center space-x-3
+          rtl:space-x-reverse"
         >
-          IBGE News
-        </h1>
-        <p className="mt-2 text-md leading-8 text-gray-600">
-          Notícias sobre o IBGE em primeira mão.
-        </p>
+          <span
+            className="text-4xl self-center font-semibold
+            whitespace-nowrap"
+          >
+            IBGE News
+          </span>
+        </a>
       </div>
-    </div>
+    </nav>
   );
 }
 

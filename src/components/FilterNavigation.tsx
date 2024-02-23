@@ -1,9 +1,9 @@
-import { IoMdSearch } from 'react-icons/io';
+/* eslint-disable react/jsx-max-depth */
 import { useEffect, useState } from 'react';
 import useFilters from '../hooks/useFilters';
 
 function FilterNavigation() {
-  const { setFilterType, searchText, setSearchText } = useFilters();
+  const { setFilterType } = useFilters();
   const [currentFilter, setCurrentFilter] = useState('mostRecent');
 
   const handleFilterClick = (filterType: string) => {
@@ -11,101 +11,78 @@ function FilterNavigation() {
     setCurrentFilter(filterType);
   };
 
-  function getFilterClass(filterType: string) {
-    return filterType === currentFilter ? 'activeFilter' : '';
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFilterType('search');
-    setSearchText(e.target.value);
-  };
-
   useEffect(() => {
     setFilterType('search');
   }, [setFilterType]);
 
   return (
-    <div className="container mx-auto p-4 flex flex-col gap-4">
-      <form
-        action="/"
-        method="get"
-        aria-label="Search"
-        className="search-form flex items-center gap-2 bg-gray-100 p-2 rounded-md"
-      >
-        <button
-          aria-label="Search"
-          tabIndex={ 0 }
-          className="search-icon p-2 bg-gray-200 rounded-md"
-        >
-          <IoMdSearch />
-        </button>
-        <input
-          placeholder="Buscar"
-          type="text"
-          value={ searchText }
-          onChange={ handleChange }
-          className="search-input flex-grow bg-transparent
-          focus:outline-none placeholder:text-gray-500"
-        />
-      </form>
 
-      <ul
-        className="filter-buttons-container grid grid-cols-4 gap-2 text-center"
-      >
-        <li>
+    <div className="container gap-4 my-2 px-2 sm:flex-row flex-col">
+      <div className="relative inline-block text-left w-full sm:w-auto">
+        <div className="group">
           <button
-            tabIndex={ 0 }
-            onClick={ () => handleFilterClick('mostRecent') }
-            className={ `
-            ${getFilterClass('mostRecent')} 
-            bg-gray-200 text-gray-700 py-2 rounded-md
-            hover:bg-gray-300 
-            active:bg-blue-500 active:text-white 
-          ` }
+            type="button"
+            className="
+            inline-flex justify-center items-center w-full
+            px-4 py-2 text-sm font-medium text-white
+            bg-gray-800 hover:bg-gray-700 focus:outline-none
+            focus:bg-gray-700 rounded-md"
           >
-            Mais recentes
+            Abrir filtros
+            <svg
+              className="w-4 h-4 ml-2 -mr-1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 12l-5-5h10l-5 5z"
+              />
+            </svg>
           </button>
-        </li>
-        <li>
-          <button
-            onClick={ () => handleFilterClick('release') }
-            className={ `
-            ${getFilterClass('release')} 
-            bg-gray-200 text-gray-700 py-2 rounded-md
-            hover:bg-gray-300 
-            active:bg-blue-500 active:text-white 
-          ` }
+
+          {/* MENU */}
+          <div
+            className="
+            absolute left-0 w-full mt-1 origin-top-left bg-white divide-y
+            divide-gray-100 rounded-md shadow-lg opacity-0 invisible
+            group-hover:opacity-100 group-hover:visible transition duration-100 z-10"
           >
-            Release
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={ () => handleFilterClick('news') }
-            className={ `
-            ${getFilterClass('news')} 
-            bg-gray-200 text-gray-700 py-2 rounded-md
-            hover:bg-gray-300 
-            active:bg-blue-500 active:text-white 
-          ` }
-          >
-            Notícia
-          </button>
-        </li>
-        <li>
-          <button
-            onClick={ () => handleFilterClick('favorites') }
-            className={ `
-            ${getFilterClass('favorites')} 
-            bg-gray-200 text-gray-700 py-2 rounded-md
-            hover:bg-gray-300 
-            active:bg-blue-500 active:text-white 
-          ` }
-          >
-            Favoritas
-          </button>
-        </li>
-      </ul>
+            <div className="py-1">
+              <button
+                onClick={ () => handleFilterClick('mostRecent') }
+                className="block px-4 py-2 text-sm text-left w-full
+                 text-gray-700 hover:bg-gray-100"
+              >
+                Mais recentes
+              </button>
+              <button
+                onClick={ () => handleFilterClick('news') }
+                className="block px-4 py-2 text-sm text-left w-full
+                 text-gray-700 hover:bg-gray-100"
+              >
+                Notícias
+              </button>
+              <button
+                onClick={ () => handleFilterClick('release') }
+                className="block px-4 py-2 text-sm text-left w-full
+                 text-gray-700 hover:bg-gray-100"
+              >
+                Release
+              </button>
+              <button
+                onClick={ () => handleFilterClick('favorites') }
+                className="block px-4 py-2 text-sm text-left w-full
+                 text-gray-700 hover:bg-gray-100"
+              >
+                Favoritas
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
