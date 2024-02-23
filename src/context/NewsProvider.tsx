@@ -21,7 +21,9 @@ export function NewsProvider({ children }: { children: React.ReactNode }) {
 
   // Filter related states
   const [filteredNews, setFilteredNews] = useState<NewsType[]>([]);
-  const [favoriteNewsIds, setFavoriteNewsIds] = useState<number[]>([]);
+  const [favoriteNewsIds, setFavoriteNewsIds] = useState<number[]>(
+    JSON.parse(localStorage.getItem('favoriteNewsIds') || '[]'),
+  );
   const [filterType, setFilterType] = useState('mostRecent');
   const [searchText, setSearchText] = useState('');
 
