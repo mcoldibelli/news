@@ -1,22 +1,30 @@
 export type NewsType = {
   id: number;
-  title: string;
-  summary: string;
-  publishedAt: Date;
+  tipo?: string;
+  titulo: string;
+  introducao: string;
+  data_publicacao: Date;
+  produtos?: string;
+  editorias: string;
+  imagens: string;
+  produtos_relacionados?: string;
+  destaque?: boolean;
   link: string;
-  images?: string | '';
-  url?: string | '';
-  type?: string | '';
-  tag: string;
 };
 
-export type ThumbnailProps = {
-  src: string;
-  alt: string;
+export type PaginationType = {
+  count: number;
+  page: number;
+  totalPages: number;
+  nextPage: number;
+  previousPage: number;
+  showingFrom: number;
+  showingTo: number;
 };
 
 export type FetchStateType = {
   status: 'idle' | 'loading' | 'success' | 'error';
+  pagination: PaginationType;
   data: NewsType[];
   error: any;
 };
