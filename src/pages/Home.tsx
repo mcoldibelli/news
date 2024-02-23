@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div className="bg-white mx-auto max-w-7xl">
       <Header />
-      <div className="container mx-auto px-2">
+      <div className="container px-2">
         <Search />
         <FilterNavigation />
       </div>
