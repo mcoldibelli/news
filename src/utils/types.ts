@@ -7,6 +7,7 @@ export type NewsType = {
   images?: string | '';
   url?: string | '';
   type?: string | '';
+  tag: string;
 };
 
 export type ThumbnailProps = {

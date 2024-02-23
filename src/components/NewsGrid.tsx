@@ -30,7 +30,7 @@ function NewsGrid() {
           publishedAt={ item.publishedAt }
           link={ item.link }
           images={ item.images }
-          isHighlight={ item.isHighlight }
+          tag={ item.tag }
         />
       </li>
     );

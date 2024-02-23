@@ -1,7 +1,7 @@
 import { IBGE_ENDPOINT } from '../utils/constants';
 import { parseDate } from '../utils/helpers';
 
-const fetchApi = async (page = 1, pageSize = 10) => {
+const fetchApi = async (page = 1, pageSize = 9) => {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 5000);
 
@@ -22,6 +22,7 @@ const fetchApi = async (page = 1, pageSize = 10) => {
       link: item.link,
       images: item.imagens,
       type: item.tipo,
+      tag: item.editorias,
     }));
 
     return formattedNewsData;
