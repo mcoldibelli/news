@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import NewsContext from '../context/NewsContext';
 import fetchApi from '../service/newsApi';
 
-const useFetchNews = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+const useFetchNews = (page = 1, pageSize = 9) => {
   const { fetchState, setFetchState } = useContext(NewsContext);
 
   useEffect(() => {
@@ -11,7 +10,7 @@ const useFetchNews = () => {
       setFetchState({ ...fetchState, status: 'loading' });
 
       try {
-        const newsData = await fetchApi(currentPage);
+        const newsData = await fetchApi(page, pageSize);
         setFetchState({ ...fetchState, status: 'success', data: newsData });
       } catch (error) {
         setFetchState({ ...fetchState, status: 'error', error });
@@ -21,7 +20,7 @@ const useFetchNews = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return { currentPage, setCurrentPage };
+  return { fetchState };
 };
 
 export default useFetchNews;

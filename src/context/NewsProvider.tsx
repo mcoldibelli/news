@@ -6,6 +6,15 @@ export function NewsProvider({ children }: { children: React.ReactNode }) {
   // News related states
   const [fetchState, setFetchState] = useState<FetchStateType>({
     data: [],
+    pagination: {
+      count: 1,
+      page: 1,
+      totalPages: 1,
+      nextPage: 1,
+      previousPage: 1,
+      showingFrom: 1,
+      showingTo: 1,
+    },
     status: 'idle',
     error: null,
   });

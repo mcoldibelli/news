@@ -1,6 +1,6 @@
 import { IBGE_ENDPOINT } from '../utils/constants';
 
-const fetchApi = async (page = 1, pageSize = 9) => {
+const fetchApi = async (page: number, pageSize: number) => {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 5000);
 
