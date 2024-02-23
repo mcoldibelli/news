@@ -11,7 +11,7 @@ const useFetchNews = (page = 1, pageSize = 9) => {
 
       try {
         const newsData = await fetchApi(page, pageSize);
-        setFetchState({ ...fetchState, status: 'success', data: newsData });
+        setFetchState({ ...fetchState, status: 'success', data: newsData.items });
       } catch (error) {
         setFetchState({ ...fetchState, status: 'error', error });
       }
