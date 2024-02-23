@@ -1,5 +1,4 @@
 import { IBGE_ENDPOINT } from '../utils/constants';
-import { parseDate } from '../utils/helpers';
 
 const fetchApi = async (page = 1, pageSize = 9) => {
   const controller = new AbortController();
@@ -13,19 +12,7 @@ const fetchApi = async (page = 1, pageSize = 9) => {
     }
 
     const data = await response.json();
-
-    const formattedNewsData = data.items.map((item:any) => ({
-      id: item.id,
-      title: item.titulo,
-      summary: item.introducao,
-      publishedAt: parseDate(item.data_publicacao),
-      link: item.link,
-      images: item.imagens,
-      type: item.tipo,
-      tag: item.editorias,
-    }));
-
-    return formattedNewsData;
+    return data;
   } catch (err: any) {
     if (err.name === 'AbortError') {
       throw new Error('Fetch request timed out');
