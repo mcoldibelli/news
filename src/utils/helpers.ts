@@ -4,7 +4,6 @@ import { IBGE_HOME } from './constants';
 export const parseThumbnail = (thumbnail: string): string => {
   if (thumbnail) {
     const parsedThumbnail = JSON.parse(thumbnail);
-
     return `${IBGE_HOME}${parsedThumbnail.image_intro}`;
   }
 
@@ -43,4 +42,18 @@ export const parseDate = (date: string): Date => {
   const dateObject = parse(dateString, dateFormat, new Date());
 
   return dateObject;
+};
+
+export const formatData = (data: any) => {
+  const formattedNewsData = data.items.map((item:any) => ({
+    id: item.id,
+    title: item.titulo,
+    summary: item.introducao,
+    publishedAt: parseDate(item.data_publicacao),
+    link: item.link,
+    images: item.imagens,
+    type: item.tipo,
+    tag: item.editorias,
+  }));
+  return formattedNewsData;
 };
