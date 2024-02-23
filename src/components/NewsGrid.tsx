@@ -19,7 +19,7 @@ function NewsGrid() {
     return (
       <li
         key={ item.id }
-        className="col-span-1 flex flex-col
+        className="grid col-span-1
         bg-white border-2 px-4 py-2 h-200 w-200"
       >
         <NewsItem
