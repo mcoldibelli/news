@@ -3,7 +3,7 @@ export type NewsType = {
   tipo?: string;
   titulo: string;
   introducao: string;
-  data_publicacao: Date;
+  data_publicacao: string;
   produtos?: string;
   editorias: string;
   imagens: string;
