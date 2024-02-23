@@ -30,6 +30,10 @@ export const dateToString = (date: Date):string => {
   if (daysSincePublished(date) === 0) {
     return 'Publicado Hoje';
   }
+
+  if (daysSincePublished(date) === 1) {
+    return 'Publicado Ontem';
+  }
   return `${daysSincePublished(date)} dias atrás`;
 };
 
