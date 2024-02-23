@@ -25,12 +25,12 @@ function NewsGrid() {
       >
         <NewsItem
           id={ item.id }
-          title={ item.title }
-          summary={ item.summary }
-          publishedAt={ item.publishedAt }
+          titulo={ item.titulo }
+          introducao={ item.introducao }
+          data_publicacao={ item.data_publicacao }
           link={ item.link }
-          images={ item.images }
-          tag={ item.tag }
+          imagens={ item.imagens }
+          editorias={ item.editorias }
         />
       </li>
     );

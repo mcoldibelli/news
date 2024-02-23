@@ -17,21 +17,21 @@ const useFilters = () => {
 
       if (filterType === 'mostRecent') {
         filteredData = news.sort((a: NewsType, b: NewsType) => {
-          const dateA = new Date(a.publishedAt).getTime();
-          const dateB = new Date(b.publishedAt).getTime();
+          const dateA = new Date(a.data_publicacao).getTime();
+          const dateB = new Date(b.data_publicacao).getTime();
           return dateB - dateA;
         });
       }
 
       if (filterType === 'release') {
         filteredData = news.filter(
-          (item: NewsType) => item.type === 'Release',
+          (item: NewsType) => item.tipo === 'Release',
         );
       }
 
       if (filterType === 'news') {
         filteredData = news.filter(
-          (item: NewsType) => item.type === 'Notícia',
+          (item: NewsType) => item.tipo === 'Notícia',
         );
       }
 
@@ -42,14 +42,15 @@ const useFilters = () => {
       }
       if (searchText) {
         const lowerCaseSearch = searchText.toLowerCase();
-
         filteredData = filteredData.filter(
           (item: NewsType) => {
-            const lowerCaseTitle = item.title.toLowerCase();
-            const lowerCaseContent = item.summary.toLowerCase();
+            const lowerCaseTitle = item.titulo.toLowerCase();
+            const lowerCaseContent = item.introducao.toLowerCase();
+            const lowerCaseEditorias = item.editorias.toLowerCase();
 
             return lowerCaseTitle.includes(lowerCaseSearch)
-              || lowerCaseContent.includes(lowerCaseSearch);
+              || lowerCaseContent.includes(lowerCaseSearch)
+              || lowerCaseEditorias.includes(lowerCaseSearch);
           },
         );
       }

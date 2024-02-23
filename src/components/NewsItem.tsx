@@ -1,9 +1,9 @@
-import { dateToString, parseThumbnail } from '../utils/helpers';
+import { dateToString, parseDate, parseThumbnail } from '../utils/helpers';
 import { NewsType } from '../utils/types';
 import Favorite from './Favorite';
 
 function NewsItem(
-  { id, title, summary, publishedAt, link, images, tag }: NewsType,
+  { id, titulo, introducao, data_publicacao, link, imagens, editorias }: NewsType,
 ) {
   // opens another tab when the user clicks on the "Leia a notícia aqui" button
   const onReadNews = () => {
@@ -19,7 +19,7 @@ function NewsItem(
         <img
           className="rounded-t-lg h-96
           md:h-auto md:w-48 md:rounded-none md:rounded-s-lg"
-          src={ parseThumbnail(images ?? '') }
+          src={ parseThumbnail(imagens ?? '') }
           alt=""
         />
         <div
@@ -32,17 +32,17 @@ function NewsItem(
           className="absolute bottom-0 right-0 bg-white
           text-black px-2 py-1 m-2 rounded-md text-xs"
         >
-          {dateToString(publishedAt)}
+          {dateToString(parseDate(data_publicacao))}
         </div>
       </div>
       <div className="flex flex-col justify-between p-4 leading-normal">
         <h5
           className="mb-2 text-2xl font-bold tracking-tight text-gray-900"
         >
-          {title}
+          {titulo}
         </h5>
         <p className="mb-3 font-normal text-gray-700">
-          {summary}
+          {introducao}
         </p>
         <div className="container flex flex-row justify-between">
           <button
@@ -54,7 +54,7 @@ function NewsItem(
             Leia mais
           </button>
           <div className="flex flex-row">
-            {tag.split(';').map((item, index) => (
+            {editorias.split(';').map((item, index) => (
               <p
                 key={ index }
                 className="bg-gray-800 ml-2 text-white px-2 py-1 mt-2
