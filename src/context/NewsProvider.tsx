@@ -5,7 +5,7 @@ import { FetchStateType, NewsContextType, NewsType } from '../utils/types';
 export function NewsProvider({ children }: { children: React.ReactNode }) {
   // News related states
   const [fetchState, setFetchState] = useState<FetchStateType>({
-    data: [],
+    items: [],
     pagination: {
       count: 1,
       page: 1,

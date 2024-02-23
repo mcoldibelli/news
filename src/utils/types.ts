@@ -25,7 +25,7 @@ export type PaginationType = {
 export type FetchStateType = {
   status: 'idle' | 'loading' | 'success' | 'error';
   pagination: PaginationType;
-  data: NewsType[];
+  items: NewsType[];
   error: any;
 };
 

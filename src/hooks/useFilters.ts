@@ -12,7 +12,7 @@ const useFilters = () => {
     const applyFilters = () => {
       if (fetchState.status !== 'success') return;
 
-      const news = fetchState.data;
+      const news = fetchState.items;
       let filteredData = news;
 
       if (filterType === 'mostRecent') {
