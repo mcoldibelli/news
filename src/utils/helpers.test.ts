@@ -1,7 +1,8 @@
+/* eslint-disable react-func/max-lines-per-function */
 /* eslint-disable @typescript-eslint/naming-convention */
 import { vi } from 'vitest';
 import { IBGE_HOME } from './constants';
-import { daysSincePublished, parseThumbnail } from './helpers';
+import { dateToString, daysSincePublished, parseDate, parseThumbnail } from './helpers';
 
 describe('helpers', () => {
   describe('parseThumbnail', () => {
@@ -29,6 +30,7 @@ describe('helpers', () => {
       expect(result).toBe(expectUrl);
     });
   });
+
   describe('daysSincePublished', () => {
     it('should return 0 for no date', () => {
       const result = daysSincePublished(new Date('error'));
@@ -44,4 +46,27 @@ describe('helpers', () => {
       expect(result).toBe(5);
     });
   });
+
+  describe('dateToString', () => {
+    it('should return "Publicado Hoje" for today', () => {
+      const today = new Date();
+      const result = dateToString(today);
+      expect(result).toBe('Publicado Hoje');
+    });
+
+    it('should return "Publicado Ontem" for yesterday', () => {
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const result = dateToString(yesterday);
+      expect(result).toBe('Publicado Ontem');
+    });
+
+    it('should return "x dias atrás" for other days', () => {
+      const date = new Date('2021-01-01');
+      const result = dateToString(date);
+      expect(result).not.toBe('Publicado Hoje');
+      expect(result).not.toBe('Publicado Ontem');
+    });
+  });
+
 });
