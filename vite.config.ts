@@ -14,6 +14,7 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'json', 'html'],
       include: ['src/**/*'],
+      exclude: ['src/utils/constants.ts','src/utils/types.ts'],
     }
   },
 })
