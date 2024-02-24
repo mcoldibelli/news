@@ -40,6 +40,13 @@ function NewsGrid() {
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
     >
       {filteredNews.length > 0 && newsList}
+      {filteredNews.length === 0 && (
+        <p
+          className="mx-auto font-semibold"
+        >
+          Nada encontrado. Tente outra busca.
+        </p>
+      )}
     </section>
   ));
 }
