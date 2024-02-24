@@ -10,8 +10,6 @@ export default function Pagination() {
   } = fetchState.pagination;
 
   const handlePageChange = (newPage: number) => {
-    newPage = Math.max(1, newPage); // prevents user from going to page 0
-
     setFetchState({
       ...fetchState,
       pagination: {
