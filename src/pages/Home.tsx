@@ -4,7 +4,7 @@ import NewsGrid from '../components/NewsGrid';
 import Pagination from '../components/Pagination';
 import Search from '../components/Search';
 
-export default function Home() {
+function Home() {
   return (
     <div className="bg-white mx-auto max-w-7xl">
       <Header />
@@ -17,3 +17,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
