@@ -1,29 +1,35 @@
 import { useContext, useEffect } from 'react';
 import NewsContext from '../context/NewsContext';
-import fetchApi from '../service/newsApi';
+import { fetchNewsPage } from '../service/newsApi';
 
 const useFetchNews = () => {
-  const { fetchState, setFetchState } = useContext(NewsContext);
+  const { fetchState, setFetchState, searchText } = useContext(NewsContext);
 
   useEffect(() => {
     const fetchNewsData = async () => {
       setFetchState({ ...fetchState, status: 'loading' });
 
       try {
-        const newsData = await fetchApi(fetchState.pagination.page);
-
-        const pagination = {
-          count: newsData.count,
-          page: newsData.page,
-          totalPages: newsData.totalPages,
-          nextPage: newsData.nextPage,
-          previousPage: newsData.previousPage,
-          showingFrom: newsData.showingFrom,
-          showingTo: newsData.showingTo,
-        };
+        const newsData = await fetchNewsPage(
+          fetchState.pagination.page,
+          searchText,
+        );
 
         setFetchState(
-          { ...fetchState, status: 'success', data: newsData.items, pagination },
+          {
+            ...fetchState,
+            status: 'success',
+            items: newsData.items,
+            pagination: {
+              count: newsData.count,
+              nextPage: newsData.nextPage,
+              page: newsData.page,
+              previousPage: newsData.previousPage,
+              showingFrom: newsData.showingFrom,
+              showingTo: newsData.showingTo,
+              totalPages: newsData.totalPages,
+            },
+          },
         );
       } catch (error) {
         setFetchState({ ...fetchState, status: 'error', error });
@@ -31,7 +37,7 @@ const useFetchNews = () => {
     };
     fetchNewsData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [fetchState.pagination.page]);
+  }, [fetchState.pagination.page, searchText]);
 
   return { fetchState };
 };
