@@ -2,9 +2,10 @@ import { useContext } from 'react';
 import NewsContext from '../context/NewsContext';
 
 function Header() {
-  const { fetchState, setFetchState } = useContext(NewsContext);
+  const { fetchState, setFetchState, setFilterType } = useContext(NewsContext);
 
   const handleRefresh = () => {
+    setFilterType('mostRecent');
     setFetchState({
       ...fetchState,
       pagination: {
