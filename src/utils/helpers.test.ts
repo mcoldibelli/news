@@ -1,6 +1,5 @@
 /* eslint-disable react-func/max-lines-per-function */
 /* eslint-disable @typescript-eslint/naming-convention */
-import { vi } from 'vitest';
 import { IBGE_HOME } from './constants';
 import { dateToString, daysSincePublished, parseDate, parseThumbnail } from './helpers';
 
@@ -69,4 +68,12 @@ describe('helpers', () => {
     });
   });
 
+  describe('parseDate', () => {
+    it('should return correct date object', () => {
+      const dateString = '01/01/2021 12:00:00';
+      const result = parseDate(dateString);
+      expect(result).toEqual(new Date('2021-01-01T12:00:00'));
+      expect(result).toBeInstanceOf(Date);
+    });
+  });
 });

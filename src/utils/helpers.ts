@@ -53,17 +53,3 @@ export const parseDate = (date: string): Date => {
 
   return dateObject;
 };
-
-export const formatData = (data: any) => {
-  const formattedNewsData = data.items.map((item:any) => ({
-    id: item.id,
-    title: item.titulo,
-    summary: item.introducao,
-    publishedAt: parseDate(item.data_publicacao),
-    link: item.link,
-    images: item.imagens,
-    type: item.tipo,
-    tag: item.editorias,
-  }));
-  return formattedNewsData;
-};
