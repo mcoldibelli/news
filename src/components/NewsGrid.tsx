@@ -37,12 +37,13 @@ function NewsGrid() {
 
   return (fetchState.status === 'success' && (
     <section
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3
+      gap-2 md:items-start md:h-fit-content"
     >
       {filteredNews.length > 0 && newsList}
       {filteredNews.length === 0 && (
         <p
-          className="mx-auto font-semibold"
+          className="mx-auto font-semibold text-black text-md"
         >
           Nada encontrado. Tente outra busca.
         </p>

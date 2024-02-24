@@ -14,8 +14,7 @@ function FilterNavigation() {
   }, [setFilterType]);
 
   return (
-
-    <div className="container gap-4 my-2 px-2 sm:flex-row flex-col">
+    <div className="container px-4">
       <div className="relative inline-block text-left w-full sm:w-auto">
         <div className="group">
           <button
