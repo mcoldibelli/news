@@ -14,7 +14,7 @@ export default defineConfig({
     coverage: {
       reporter: ['text', 'json', 'html'],
       include: ['src/**/*'],
-      exclude: ['src/utils/constants.ts','src/utils/types.ts'],
+      exclude: ['src/utils/constants.ts','src/utils/types.ts','src/vite-env.d.ts','src/main.tsx'],
     }
   },
 })
