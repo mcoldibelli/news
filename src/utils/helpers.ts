@@ -2,12 +2,22 @@ import { parse } from 'date-fns';
 import { IBGE_HOME } from './constants';
 
 export const parseThumbnail = (thumbnail: string): string => {
-  if (thumbnail) {
-    const parsedThumbnail = JSON.parse(thumbnail);
-    return `${IBGE_HOME}${parsedThumbnail.image_intro}`;
-  }
+  const placeholder = 'https://via.placeholder.com/300x200';
 
-  return 'https://via.placeholder.com/300x200';
+  if (thumbnail) {
+    let parsedThumbnail;
+    try {
+      // successfully parsed thumbnail
+      parsedThumbnail = JSON.parse(thumbnail);
+      return `${IBGE_HOME}${parsedThumbnail.image_intro}`;
+    } catch (error) {
+      // failed to parse thumbnail
+      console.error('Error parsing thumbnail', error);
+      return placeholder;
+    }
+  }
+  // no thumbnail
+  return placeholder;
 };
 
 export const daysSincePublished = (date: Date): number => {
