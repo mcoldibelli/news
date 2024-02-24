@@ -1,24 +1,37 @@
+import { useContext } from 'react';
+import NewsContext from '../context/NewsContext';
+
 function Header() {
+  const {
+    fetchState,
+    setFetchState, setFilterType, setSearchText,
+  } = useContext(NewsContext);
+
+  const handleRefresh = () => {
+    setFilterType('mostRecent');
+    setFetchState({
+      ...fetchState,
+      pagination: {
+        ...fetchState.pagination,
+        page: 1 },
+    });
+    setSearchText('');
+  };
+
   return (
-    <nav className="bg-gray-100 border-gray-200 shadow-lg">
-      <div
-        className="max-w-screen-xl flex flex-wrap items-center
-          justify-between mx-auto p-4"
-      >
-        <a
-          href="teste"
-          className="flex items-center space-x-3
-          rtl:space-x-reverse"
-        >
-          <span
-            className="text-4xl self-center font-semibold
+    <header className="bg-gray-100 border-gray-200 shadow-lg p-4">
+      <h1
+        className="text-4xl self-center font-semibold
             whitespace-nowrap"
-          >
-            IBGE News
-          </span>
-        </a>
-      </div>
-    </nav>
+      >
+        <button
+          className="text-gray-800"
+          onClick={ handleRefresh }
+        >
+          IBGE News
+        </button>
+      </h1>
+    </header>
   );
 }
 

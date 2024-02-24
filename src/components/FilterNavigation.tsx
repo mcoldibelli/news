@@ -1,14 +1,12 @@
 /* eslint-disable react/jsx-max-depth */
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import useFilters from '../hooks/useFilters';
 
 function FilterNavigation() {
   const { setFilterType } = useFilters();
-  const [currentFilter, setCurrentFilter] = useState('mostRecent');
 
   const handleFilterClick = (filterType: string) => {
     setFilterType(filterType);
-    setCurrentFilter(filterType);
   };
 
   useEffect(() => {
@@ -16,8 +14,7 @@ function FilterNavigation() {
   }, [setFilterType]);
 
   return (
-
-    <div className="container gap-4 my-2 px-2 sm:flex-row flex-col">
+    <div className="container px-4">
       <div className="relative inline-block text-left w-full sm:w-auto">
         <div className="group">
           <button
@@ -45,9 +42,9 @@ function FilterNavigation() {
           {/* MENU */}
           <div
             className="
-            absolute left-0 w-full mt-1 origin-top-left bg-white divide-y
+            absolute left-0 w-full origin-top-left bg-white divide-y
             divide-gray-100 rounded-md shadow-lg opacity-0 invisible
-            group-hover:opacity-100 group-hover:visible transition duration-100 z-10"
+            group-hover:opacity-100 group-hover:visible transition duration-200 z-10"
           >
             <div className="py-1">
               <button

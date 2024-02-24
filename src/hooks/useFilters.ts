@@ -12,24 +12,26 @@ const useFilters = () => {
     const applyFilters = () => {
       if (fetchState.status !== 'success') return;
 
-      const news = fetchState.data;
+      const news = fetchState.items;
       let filteredData = news;
 
       if (filterType === 'mostRecent') {
-        filteredData = news.filter(
-          (item: NewsType) => item.id !== news[0].id,
-        );
+        filteredData = news.sort((a: NewsType, b: NewsType) => {
+          const dateA = new Date(a.data_publicacao).getTime();
+          const dateB = new Date(b.data_publicacao).getTime();
+          return dateB - dateA;
+        });
       }
 
       if (filterType === 'release') {
         filteredData = news.filter(
-          (item: NewsType) => item.type === 'Release' && item.id !== news[0].id,
+          (item: NewsType) => item.tipo === 'Release',
         );
       }
 
       if (filterType === 'news') {
         filteredData = news.filter(
-          (item: NewsType) => item.type === 'Notícia' && item.id !== news[0].id,
+          (item: NewsType) => item.tipo === 'Notícia',
         );
       }
 
@@ -38,19 +40,7 @@ const useFilters = () => {
           (item: NewsType) => favoriteNewsIds.includes(item.id),
         );
       }
-      if (searchText) {
-        const lowerCaseSearch = searchText.toLowerCase();
 
-        filteredData = filteredData.filter(
-          (item: NewsType) => {
-            const lowerCaseTitle = item.title.toLowerCase();
-            const lowerCaseContent = item.summary.toLowerCase();
-
-            return lowerCaseTitle.includes(lowerCaseSearch)
-              || lowerCaseContent.includes(lowerCaseSearch);
-          },
-        );
-      }
       setFilteredNews(filteredData);
     };
     applyFilters();

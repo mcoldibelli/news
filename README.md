@@ -10,8 +10,6 @@ A React-based news aggregator that fetches and displays the latest news headline
 
 - Ability to filter the display
 
-- Displays an initial grid of the top 9 news items
-
 ## Getting Started
 
 **Prerequisites**
@@ -46,9 +44,7 @@ Open the application in your web browser at http://localhost:3000
 
 ## Technologies Used
 
-- React.js
-- JavaScript
-- CSS
+- React
+- JavaScript / Typescript
+- Tailwind CSS
 
-
-## Project Structure

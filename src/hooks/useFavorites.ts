@@ -5,11 +5,6 @@ const useFavorites = () => {
   const { favoriteNewsIds, setFavoriteNewsIds } = useContext(NewsContext);
 
   useEffect(() => {
-    const storedFavorites = JSON.parse(localStorage.getItem('favoriteNewsIds') || '[]');
-    setFavoriteNewsIds(storedFavorites);
-  }, []);
-
-  useEffect(() => {
     localStorage.setItem('favoriteNewsIds', JSON.stringify(favoriteNewsIds));
   }, [favoriteNewsIds]);
 
