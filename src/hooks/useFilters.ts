@@ -40,20 +40,7 @@ const useFilters = () => {
           (item: NewsType) => favoriteNewsIds.includes(item.id),
         );
       }
-      if (searchText) {
-        const lowerCaseSearch = searchText.toLowerCase();
-        filteredData = filteredData.filter(
-          (item: NewsType) => {
-            const lowerCaseTitle = item.titulo.toLowerCase();
-            const lowerCaseContent = item.introducao.toLowerCase();
-            const lowerCaseEditorias = item.editorias.toLowerCase();
 
-            return lowerCaseTitle.includes(lowerCaseSearch)
-              || lowerCaseContent.includes(lowerCaseSearch)
-              || lowerCaseEditorias.includes(lowerCaseSearch);
-          },
-        );
-      }
       setFilteredNews(filteredData);
     };
     applyFilters();
