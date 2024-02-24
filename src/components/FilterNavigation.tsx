@@ -42,9 +42,9 @@ function FilterNavigation() {
           {/* MENU */}
           <div
             className="
-            absolute left-0 w-full mt-1 origin-top-left bg-white divide-y
+            absolute left-0 w-full origin-top-left bg-white divide-y
             divide-gray-100 rounded-md shadow-lg opacity-0 invisible
-            group-hover:opacity-100 group-hover:visible transition duration-100 z-10"
+            group-hover:opacity-100 group-hover:visible transition duration-200 z-10"
           >
             <div className="py-1">
               <button
