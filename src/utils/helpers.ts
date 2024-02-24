@@ -21,8 +21,6 @@ export const parseThumbnail = (thumbnail: string): string => {
 };
 
 export const daysSincePublished = (date: Date): number => {
-  if (!date) return 0;
-
   const now = new Date();
 
   const differenceInMs = Math.abs(now.getTime() - date.getTime());
