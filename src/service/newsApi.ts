@@ -1,11 +1,13 @@
 import { IBGE_ENDPOINT, NEWS_PER_PAGE } from '../utils/constants';
 
-const fetchApi = async (page: number) => {
+export const fetchNewsPage = async (page: number, search = '') => {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 5000);
 
   try {
-    const response = await fetch(`${IBGE_ENDPOINT}/?qtd=${NEWS_PER_PAGE}&page=${page}`);
+    const response = await fetch(
+      `${IBGE_ENDPOINT}/?qtd=${NEWS_PER_PAGE}&page=${page}&busca=${search}`,
+    );
 
     if (!response.ok) {
       throw new Error(`Request failed with status: ${response.status}`);
@@ -23,5 +25,3 @@ const fetchApi = async (page: number) => {
     clearTimeout(timeoutId);
   }
 };
-
-export default fetchApi;
