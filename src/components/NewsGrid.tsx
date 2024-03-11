@@ -15,7 +15,7 @@ function NewsGrid() {
     return (<div>{`Error: ${fetchState.error.message}`}</div>);
   }
 
-  const newsList = filteredNews.map((item) => {
+  const newsList = filteredNews.slice(1).map((item) => {
     return (
       <li
         key={ item.id }
