@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import NewsContext from '../context/NewsContext';
+import Search from './Search';
 
 function Header() {
   const {
@@ -19,18 +20,27 @@ function Header() {
   };
 
   return (
-    <header className="bg-gray-100 border-gray-200 shadow-lg p-4">
-      <h1
-        className="text-4xl self-center font-semibold
-            whitespace-nowrap"
+    <header className="bg-gray-300 border-gray-200">
+      <nav
+        className="
+          flex flex-nowrap justify-between items-center mx-auto
+            px-4 max-w-screen-xl"
       >
-        <button
-          className="text-gray-800"
+        <a
+          href="/"
+          className="flex items-center"
           onClick={ handleRefresh }
         >
-          IBGE News
-        </button>
-      </h1>
+          <span
+            className="self-center text-4xl font-semibold whitespace-nowrap"
+          >
+            IBGE News
+          </span>
+        </a>
+        <div className="flex md:items-center lg:order-2">
+          <Search />
+        </div>
+      </nav>
     </header>
   );
 }
