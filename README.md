@@ -9,11 +9,6 @@ A React-based news aggregator that fetches and displays the latest news headline
  ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
  ![Tailwind](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-
-- React
-- JavaScript / Typescript
-- Tailwind CSS
-
 ## Features
 
 - Dynamic news feed rendered from the IBGE API
